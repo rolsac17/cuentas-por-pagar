@@ -1,7 +1,13 @@
 import { LockClosedIcon } from '@heroicons/react/20/solid'
+// import {Link} from "react-router-dom";
+// import {useParams} from 'react-router-dom';
 import './App.css';
 
 function Login() {
+  // const irDashboard = useParams();
+  // const newParams = () =>{
+  //   irDashboard.push('/dasboard')
+  // }
   return (
     <div className="App">
       <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
