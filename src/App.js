@@ -7,25 +7,22 @@ import {
 } from "react-router-dom";
 import {Routes} from 'react-router-dom';
 import Menu from './Components/Menu';
+import Proveedores from './Components/Proveedores';
 
 
 
 function App() {
+
   return (
 
     <Router>
 
       <Routes>
-
         <Route path='/' element={<Login />}/>
         <Route path='/menu' element={<Menu />}/>
-          {/* <div className='app'>
-          <Login />
-          </div>
-        </Route> */}
+        <Route path='/proveedores' element={<Proveedores />} />
 
       </Routes>
-
       
 
     </Router>
