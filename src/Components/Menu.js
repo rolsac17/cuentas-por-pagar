@@ -1,8 +1,8 @@
 import React, { Fragment, useState } from 'react';
-import { Dialog, Menu, Transition } from '@headlessui/react';
+import { Link } from 'react-router-dom';
+import { Dialog,  Transition } from '@headlessui/react';
 import {
   Bars3CenterLeftIcon,
-  BellIcon,
   ClockIcon,
   CogIcon,
   CreditCardIcon,
@@ -10,33 +10,28 @@ import {
   HomeIcon,
   QuestionMarkCircleIcon,
   ScaleIcon,
-  ShieldCheckIcon,
   UserGroupIcon,
   XMarkIcon,
   ArrowsRightLeftIcon,
 } from '@heroicons/react/24/outline';
 import {
   BanknotesIcon,
-  BuildingOfficeIcon,
-  CheckCircleIcon,
-  ChevronDownIcon,
-  ChevronRightIcon,
-  MagnifyingGlassIcon,
+  ChevronRightIcon
 } from '@heroicons/react/20/solid';
 
-const navigation = [
-  { name: 'Inicio', href: '#', icon: HomeIcon, current: true },
-  { name: 'Historial', href: '#', icon: ClockIcon, current: false },
-  { name: 'Balance', href: '#', icon: ScaleIcon, current: false },
-  { name: 'Facturas', href: '#', icon: CreditCardIcon, current: false },
-  { name: 'Proveedores', href: '#', icon: UserGroupIcon, current: false },
-  { name: 'Reportes', href: '#', icon: DocumentChartBarIcon, current: false },
-];
-const secondaryNavigation = [
-  { name: 'Configuración', href: '#', icon: CogIcon },
-  { name: 'Ayuda', href: '#', icon: QuestionMarkCircleIcon },
-  { name: 'Privacidad', href: '#', icon: ShieldCheckIcon },
-];
+// const navigation = [
+//   { name: 'Inicio', href: '#', icon: HomeIcon, current: true },
+//   { name: 'Historial', href: '#', icon: ClockIcon, current: false },
+//   { name: 'Balance', href: '#', icon: ScaleIcon, current: false },
+//   { name: 'Facturas', href: '#', icon: CreditCardIcon, current: false },
+//   { name: 'Proveedores', href: '#', icon: UserGroupIcon, current: false },
+//   { name: 'Reportes', href: '#', icon: DocumentChartBarIcon, current: false },
+// ];
+// const secondaryNavigation = [
+//   { name: 'Configuración', href: '#', icon: CogIcon },
+//   { name: 'Ayuda', href: '#', icon: QuestionMarkCircleIcon },
+//   { name: 'Privacidad', href: '#', icon: ShieldCheckIcon },
+// ];
 const cards = [
   {
     name: 'Balance Contable',
@@ -202,9 +197,8 @@ export default function Example() {
                     </div>
                     {/* Opción de pagina de Proveedores */}
                     <div className='space-y-1 px-2'>
-                      <a
+                      <Link to={"/proveedores"}
                         key=''
-                        href=''
                         className='text-cyan-100 hover:text-white hover:bg-cyan-600 group flex items-center px-2 py-2 text-base font-medium rounded-md'
                       >
                         <UserGroupIcon
@@ -212,7 +206,7 @@ export default function Example() {
                           aria-hidden='true'
                         />
                         Proveedores
-                      </a>
+                      </Link>
                     </div>
                     {/* Opción de pagina de Reportes */}
                     <div className='space-y-1 px-2'>
@@ -233,7 +227,6 @@ export default function Example() {
                       <div className='space-y-1 px-2'>
                         <a
                           key=''
-                          href=''
                           className='group flex items-center rounded-md px-2 py-2 text-base font-medium text-cyan-100 hover:bg-cyan-600 hover:text-white'
                         >
                           <CogIcon
@@ -247,7 +240,6 @@ export default function Example() {
                       <div className='space-y-1 px-2'>
                         <a
                           key=''
-                          href=''
                           className='group flex items-center rounded-md px-2 py-2 text-base font-medium text-cyan-100 hover:bg-cyan-600 hover:text-white'
                         >
                           <QuestionMarkCircleIcon
@@ -299,7 +291,7 @@ export default function Example() {
               </div>
               {/* Opción de pagina de Historial */}
               <div className='space-y-1 px-2'>
-                <a
+                <Link to={"/historial"}
                   key=''
                   href=''
                   className='text-cyan-100 hover:text-white hover:bg-cyan-600 group flex items-center px-2 py-2 text-base font-medium rounded-md'
@@ -309,7 +301,7 @@ export default function Example() {
                     aria-hidden='true'
                   />
                   Historial
-                </a>
+                </Link>
               </div>
               {/* Opción de pagina de Balance */}
               <div className='space-y-1 px-2'>
@@ -327,7 +319,7 @@ export default function Example() {
               </div>
               {/* Opción de pagina de Factura */}
               <div className='space-y-1 px-2'>
-                <a
+                <Link to={"/factura"}
                   key=''
                   href=''
                   className='text-cyan-100 hover:text-white hover:bg-cyan-600 group flex items-center px-2 py-2 text-base font-medium rounded-md'
@@ -337,11 +329,11 @@ export default function Example() {
                     aria-hidden='true'
                   />
                   Factura
-                </a>
+                </Link>
               </div>
               {/* Opción de pagina de Proveedores */}
               <div className='space-y-1 px-2'>
-                <a
+                <Link to={"/proveedores"}
                   key=''
                   href=''
                   className='text-cyan-100 hover:text-white hover:bg-cyan-600 group flex items-center px-2 py-2 text-base font-medium rounded-md'
@@ -351,11 +343,11 @@ export default function Example() {
                     aria-hidden='true'
                   />
                   Proveedores
-                </a>
+                </Link>
               </div>
               {/* Opción de pagina de Reportes */}
               <div className='space-y-1 px-2'>
-                <a
+                <Link to={"/reportes"}
                   key=''
                   href=''
                   className='text-cyan-100 hover:text-white hover:bg-cyan-600 group flex items-center px-2 py-2 text-base font-medium rounded-md'
@@ -365,7 +357,7 @@ export default function Example() {
                     aria-hidden='true'
                   />
                   Reportes
-                </a>
+                </Link>
               </div>
               <div className='mt-6 pt-6'>
                 <div className='space-y-1 px-2'>
