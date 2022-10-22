@@ -1,44 +1,56 @@
 import React from 'react';
-import '../css/formFacturas.css';
+
 
 const Factura = () => {
+
     return ( 
-        <div>
-            <div className="container">
-                <div className="header">
-                    <h2>Formulario de Facturacion</h2>
-                </div>
-                <form id="form" className="form">
-                    <div className="form-control">
-                        <label htmlFor="factura">No. de Factura</label>
-                        <input type="number" placeholder="Ingrese No. de Factura" id="id" />
-                        <i className="fas fa-check-circle"></i>
-                        <i className="fas fa-exclamation-circle"></i>
-                        <small>Error message</small>
-                    </div>
-                    <div className="form-control">
-                        <label htmlFor="username">Proveedor de Factura</label>
-                        <input type="text" placeholder="Ingrese Proveedor de Factura" id="proveedor" />
-                        <i className="fas fa-check-circle"></i>
-                        <i className="fas fa-exclamation-circle"></i>
-                        <small>Error message</small>
-                    </div>
-                    <div className="form-control">
-                        <label htmlFor="username">Fecha de Facturacion</label>
-                        <input type="date" placeholder="Fecha de Facturacion" id="fecha"/>
-                        <i className="fas fa-check-circle"></i>
-                        <i className="fas fa-exclamation-circle"></i>
-                        <small>Error message</small>
-                    </div>
-                    <div className="form-control">
-                        <label htmlFor="username">Total de Factura</label>
-                        <input type="number" placeholder="Ingrese el total de factura" id="total"/>
-                        <i className="fas fa-check-circle"></i>
-                        <i className="fas fa-exclamation-circle"></i>
-                        <small>Error message</small>
-                    </div>
-                    <button>Enviar</button>
+        <div className='m-5'>
+            <div className="container m-5" style={{width:"85rem"}}>
+
+            <header className="bg-primary">
+                <h1 className="text-white text-center p-5" >Formulario de Facturacion</h1>
+            </header>
+
+            <main className='px-5'>
+
+                <form action="" 
+                >
+
+                    <label htmlFor="id">No. Factura</label>
+                    <input type="number" id="id" name="id" className="form-control" autoComplete="off"/>
+
+                    <label htmlFor="nombre">Nombre Proveedor</label>
+                    <input type="text" id="nombre" name="nombre" className="form-control" autoComplete="off"/>
+
+                    <label htmlFor="total">Total Factura</label>
+                    <input type="number" id="total" name="total" className="form-control" autoComplete="off"/>
+
+                    <input style={{color: "black"}} type="button" value = "Guardar" className="btn btn-dark mt-3 mb-3"/>
+
                 </form>
+
+                <hr/>
+
+                <table className="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>No. Factura</th>
+                            <th>Proveedor</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="detalle">
+                        
+                    </tbody>
+                </table>
+
+            </main>
+
+            <footer>
+
+            </footer>
+
             </div>
         </div>
      );

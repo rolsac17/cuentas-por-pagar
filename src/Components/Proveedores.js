@@ -1,44 +1,53 @@
 import React from 'react';
-import '../css/formProveedores.css';
 
 const Proveedores = () => {
     return ( 
-        <div>
-            <div className="container">
-                <div className="header">
-                    <h2>Formulario de Proveedores</h2>
-                </div>
-                <form id="form" className="form">
-                    <div className="form-control">
-                        <label htmlFor="factura">Id de Proveedor</label>
-                        <input type="number" placeholder="Ingrese un id de Proveedor" id="id" />
-                        <i className="fas fa-check-circle"></i>
-                        <i className="fas fa-exclamation-circle"></i>
-                        <small>Error message</small>
-                    </div>
-                    <div className="form-control">
-                        <label htmlFor="nombrepro">Nombre del Proveedor</label>
-                        <input type="text" placeholder="Nombre del proveedor" id="proveedor" />
-                        <i className="fas fa-check-circle"></i>
-                        <i className="fas fa-exclamation-circle"></i>
-                        <small>Error message</small>
-                    </div>
-                    <div className="form-control">
-                        <label htmlFor="correpro">Email del Proveedor</label>
-                        <input type="email" placeholder="Email del Proveedor" id="correo"/>
-                        <i className="fas fa-check-circle"></i>
-                        <i className="fas fa-exclamation-circle"></i>
-                        <small>Error message</small>
-                    </div>
-                    <div className="form-control">
-                        <label htmlFor="tel">Telefono</label>
-                        <input type="number" placeholder="Ingrese el Telefono" id="total"/>
-                        <i className="fas fa-check-circle"></i>
-                        <i className="fas fa-exclamation-circle"></i>
-                        <small>Error message</small>
-                    </div>
-                    <button>Enviar</button>
-                </form>
+        <div className='m-5'>
+            <div className="container m-5" style={{width:"85rem"}}>
+
+                <header className="bg-primary">
+                    <h1 className="text-white text-center p-5" >Formulario de Proveedores</h1>
+                </header>
+
+                <main className='px-5'>
+
+                    <form action="">
+
+                        <label htmlFor="id">ID Proveedor</label>
+                        <input type="number" id="id" name="id" className="form-control" autoComplete="off"/>
+
+                        <label htmlFor="nombre">Nombre Proveedor</label>
+                        <input type="text" id="nombre" name="nombre" className="form-control" autoComplete="off"/>
+
+                        <label htmlFor="correo">Correo</label>
+                        <input type="email" id="correo" name="correo" className="form-control" autoComplete="off"/>
+
+                        <label htmlFor="telefono">Telefono</label>
+                        <input type="number" id="telefono" name="telefono" className="form-control" autoComplete="off"/>
+
+                        <input style={{color: "black"}} type="button" value = "Guardar" className="btn btn-success mt-3 mb-3" />
+
+                    </form>
+
+                    <hr/>
+
+                    <table className="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>ID Proveedor</th>
+                                <th>Proveedor</th>
+                                <th>Correo</th>
+                                <th>Telefono</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="detalle">
+                            
+                        </tbody>
+                    </table>
+
+                </main>
+
             </div>
         </div>
      );
