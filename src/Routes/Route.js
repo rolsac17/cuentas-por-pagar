@@ -1,3 +1,4 @@
+
 import Login from '../Components/Logins';
 import {
   BrowserRouter as Router,
@@ -13,15 +14,19 @@ import Historial from '../Components/Historial';
 
 
 function Rutas() {
+
+  
+
   return (
 
     <Router>
 
+      <Menu />
 
       <Routes>
 
 
-        <Route path='/menu' element={<Menu />}/> 
+        <Route path='/menu' element={<Menu />}/>
         <Route path='/proveedores' element={<Proveedores />}/>
         <Route path='/reportes' element={<Reportes />}/>
         <Route path='/factura' element={<Factura />}/>
