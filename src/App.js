@@ -1,35 +1,13 @@
 
-import Login from './Components/Logins';
-import {
-  BrowserRouter as Router,
-  Route,
-  Link
-} from "react-router-dom";
-import {Routes} from 'react-router-dom';
-import Menu from './Components/Menu';
+import Rutas from './Routes/Route';
 
 
 
 function App() {
   return (
-
-    <Router>
-
-      <Routes>
-
-        <Route path='/' element={<Login />}/>
-        <Route path='/menu' element={<Menu />}/>
-          {/* <div className='app'>
-          <Login />
-          </div>
-        </Route> */}
-
-      </Routes>
-
-      
-
-    </Router>
-
+      <div className='flex'>
+        <Rutas />
+      </div>
     
   );
 }
