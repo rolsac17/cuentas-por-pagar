@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { LockClosedIcon } from '@heroicons/react/20/solid'
 import { Link } from 'react-router-dom';
-import Menu from '../Components/Menu';
 
 const Login = () => {
 
