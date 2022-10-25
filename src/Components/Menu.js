@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Dialog, Transition } from '@headlessui/react';
+import { Dialog, Menu, Transition } from '@headlessui/react';
 import {
   Bars3CenterLeftIcon,
   ClockIcon,
@@ -98,20 +98,6 @@ export default function Example({ children }) {
                     className='mt-5 h-full flex-shrink-0  overflow-y-auto'
                     aria-label='Sidebar'
                   >
-                    {/* Opción de pagina de inicio */}
-                    <div className='space-y-1 px-2'>
-                      <a
-                        key=''
-                        href=''
-                        className='text-cyan-100 hover:text-white hover:bg-cyan-600 group flex items-center px-2 py-2 text-base font-medium rounded-md'
-                      >
-                        <HomeIcon
-                          className='mr-4 h-6 w-6 flex-shrink-0 text-cyan-200'
-                          aria-hidden='true'
-                        />
-                        Inicio
-                      </a>
-                    </div>
                     {/* Opción de pagina de Historial */}
                     <div className='space-y-1 px-2'>
                       <a
@@ -235,20 +221,6 @@ export default function Example({ children }) {
               className='mt-5 flex flex-1 flex-col overflow-y-auto'
               aria-label='Sidebar'
             >
-              {/* Opción de pagina de inicio */}
-              <div className='space-y-1 px-2'>
-                <a
-                  key=''
-                  href=''
-                  className='text-cyan-100 hover:text-white hover:bg-cyan-600 group flex items-center px-2 py-2 text-base font-medium rounded-md'
-                >
-                  <HomeIcon
-                    className='mr-4 h-6 w-6 flex-shrink-0 text-cyan-200'
-                    aria-hidden='true'
-                  />
-                  Inicio
-                </a>
-              </div>
               {/* Opción de pagina de Historial */}
               <div className='space-y-1 px-2'>
                 <Link
@@ -261,22 +233,8 @@ export default function Example({ children }) {
                     className='mr-4 h-6 w-6 flex-shrink-0 text-cyan-200'
                     aria-hidden='true'
                   />
-                  Historial
+                  Estados de Cuenta
                 </Link>
-              </div>
-              {/* Opción de pagina de Balance */}
-              <div className='space-y-1 px-2'>
-                <a
-                  key=''
-                  href=''
-                  className='text-cyan-100 hover:text-white hover:bg-cyan-600 group flex items-center px-2 py-2 text-base font-medium rounded-md'
-                >
-                  <ScaleIcon
-                    className='mr-4 h-6 w-6 flex-shrink-0 text-cyan-200'
-                    aria-hidden='true'
-                  />
-                  Balance
-                </a>
               </div>
               {/* Opción de pagina de Factura */}
               <div className='space-y-1 px-2'>
@@ -338,20 +296,6 @@ export default function Example({ children }) {
                   Configuración
                 </Link>
               </div>
-                {/* Menu de ayuda*/}
-                <div className='space-y-1 px-2'>
-                  <a
-                    key=''
-                    href=''
-                    className='group flex items-center rounded-md px-2 py-2 text-base font-medium text-cyan-100 hover:bg-cyan-600 hover:text-white'
-                  >
-                    <QuestionMarkCircleIcon
-                      className='mr-4 h-6 w-6 text-cyan-200'
-                      aria-hidden='true'
-                    />
-                    Ayuda
-                  </a>
-                </div>
               </div>
             </nav>
           </div>
@@ -371,19 +315,17 @@ export default function Example({ children }) {
           </div>
         </div>
       </div>
-      <main>
-        <div className='py-16'>
-          <div className='mx-full max-w-screen-xl px-4 sm:px-6 md:px-8'>
+      <main className='w-full'>
+        <div className='py-16 w-full'>
+          <div className='mx-full max-w-screen-xl px-4 sm:px-6 md:px-8 w-full'>
            
           </div>
-          <div className='mx-auto max-w-7xl px-4 sm:px-6 md:px-8'>
+          <div className='w-full'>
             {/* Replace with your content */}
 
-            <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
+            <div className='w-full'>
               {children}
             </div>
-
-            {/* /End replace */}
           </div>
         </div>
       </main>

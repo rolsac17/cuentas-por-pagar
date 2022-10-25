@@ -1,8 +1,11 @@
 import React from 'react';
+import Menu from './Menu';
 
 const Reportes = () => {
     return ( 
-        <div className='flex flex-col center container w-full items-center'>
+        <>
+        <Menu>
+        <div className='w-full flex flex-col center container items-center'>
             <div className="container m-5 content-center" style={{width:"95%"}}>
 
                 <header className="bg-[#a21caf] rounded-3xl">
@@ -29,6 +32,8 @@ const Reportes = () => {
 
             </div>
         </div>
+            </Menu></>
+        
      );
 }
  

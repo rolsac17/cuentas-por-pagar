@@ -1,9 +1,12 @@
 import React from 'react';
+import Menu from './Menu';
 
 const Proveedores = () => {
     return ( 
-        <div className='flex flex-col center container w-full items-center'>
-            <div className="container m-5 content-center" style={{width:"95%"}}>
+        <>
+        <Menu>
+        <div className='flex flex-col center container w-full '>
+            <div className="container m-5 content-center" style={{width:"35%"}}>
 
                 <header className="bg-[#a21caf] rounded-3xl">
                     <h1 className='text-center text-white hover:text-white px-2 py-2 text-base font-medium rounded-md' >Formulario de Proveedores</h1>
@@ -50,6 +53,8 @@ const Proveedores = () => {
 
             </div>
         </div>
+        </Menu>
+        </>
      );
 }
  

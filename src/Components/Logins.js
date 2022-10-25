@@ -28,7 +28,7 @@ const Login = () => {
                 <div className="-space-y-px rounded-md shadow-sm">
                   <div>
                     <label htmlFor="email-address" className="sr-only">
-                      Email address
+                      Dirección de Correo Electrónico
                     </label>
                     <input
                       id="email-address"
@@ -68,7 +68,7 @@ const Login = () => {
                 </div>
     
                 <div>
-                  <Link to={"/menu"}
+                  <Link to={"/Historial"}
                     type="submit"
                     className="group relative flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                   >
