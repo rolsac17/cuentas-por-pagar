@@ -27,9 +27,9 @@ const Factura = () => {
                   autoComplete='off'
                 />
 
-                <label htmlFor='nombre'>Nombre Proveedor</label>
+                <label htmlFor='nombre'>Id Proveedor</label>
                 <input
-                  type='text'
+                  type='number'
                   id='nombre'
                   name='nombre'
                   className='form-control rounded-3xl'
