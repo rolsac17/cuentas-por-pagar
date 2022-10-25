@@ -8,9 +8,10 @@ const Login = () => {
     const [password, setPassword] = useState('');
 
     return (
-        <div className="App">
-          <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-            <div className="w-full max-w-md space-y-8">
+        <div className='flex flex-col center container w-full items-center'>
+          <div className='flex flex-col items-center justify-center text-center w-4/5'>
+          <div className="w-1/2">
+            <div className="w-full space-y-8">
               <div>
                 <img
                   className="mx-auto h-25 w-25"
@@ -79,6 +80,7 @@ const Login = () => {
                 </div>
               </form>
             </div>
+          </div>
           </div>
         </div> 
 

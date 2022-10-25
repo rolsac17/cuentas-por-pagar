@@ -51,7 +51,7 @@ import {
 
 const Historial = () => {
     return ( 
-        <div className='content-center w-full'>
+        <div className='w-full'>
             <main className='pb-8'>
             <div className='mt-8'>
               {/* Inicio de Menu de cards*/}

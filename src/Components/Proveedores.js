@@ -3,7 +3,7 @@ import React from 'react';
 const Proveedores = () => {
     return ( 
         <div className='m-5'>
-            <div className="container m-4" style={{width:"85rem"}}>
+            <div className="container m-4 content-center" style={{width:"85rem"}}>
 
                 <header className="bg-[#e5e5e5] rounded-3xl">
                     <h1 className="text-center p-2 text-lg font-medium leading-6 text-gray-900" >Formulario de Proveedores</h1>
