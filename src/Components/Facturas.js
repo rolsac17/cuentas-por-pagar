@@ -7,8 +7,8 @@ const Factura = () => {
         <div className='m-4'>
             <div className="container m-5 justify-center" style={{width:"85rem"}}>
 
-            <header className="bg-[#e5e5e5] rounded-3xl">
-                <h1 className="text-center p-2 text-lg font-medium leading-6 text-gray-900" >Formulario de Facturacion</h1>
+            <header className="bg-[#a21caf] rounded-3xl">
+                <h1 className='text-center text-white hover:text-white px-2 py-2 text-base font-medium rounded-md' >Formulario de Facturacion</h1>
             </header>
 
             <main className='px-1 pt-6'>

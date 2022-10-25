@@ -226,10 +226,10 @@ export default function Example() {
         {/* Static sidebar para escritorio*/}
         <div className='hidden lg:fixed lg:inset-y-0 lg:inset-x-0 lg:flex lg:w-64 lg:flex-col'>
           {/* Componente de la barra lateral, intercambie este elemento con otra barra lateral si lo desea */}
-          <div className='flex flex-grow flex-col overflow-y-auto bg-cyan-700 pt-5 pb-4'>
-            <div className='flex flex-shrink-0 items-center px-4'>
+          <div className='flex flex-grow flex-col overflow-y-auto bg-[#a21caf] pt-5 pb-4 items-center'>
+            <div className='flex items-center h-40 w-40'>
               <img
-                className='h-8 w-auto'
+                className='h-40 w-40'
                 src='https://images.vexels.com/media/users/3/224169/isolated/lists/dbfe1f493ad01117fa4ec5ba10150e4d-logotipo-de-programaci-n-inform-tica.png'
                 alt='Easywire logo'
               />
