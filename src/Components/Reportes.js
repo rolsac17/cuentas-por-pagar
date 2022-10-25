@@ -13,10 +13,10 @@ const Reportes = () => {
                     <table className="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th>ID Proveedor</th>
-                                <th>Proveedor</th>
-                                <th>Correo</th>
-                                <th>Telefono</th>
+                                <th>ID Reporte</th>
+                                <th>Tipo Reporte</th>
+                                <th>Observaciones</th>
+                                <th>Extras</th>
                             </tr>
                         </thead>
 

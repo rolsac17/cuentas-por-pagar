@@ -324,19 +324,20 @@ export default function Example({ children }) {
                 </Link>
               </div>
               <div className='mt-6 pt-6'>
-                <div className='space-y-1 px-2'>
-                  <a
-                    key=''
-                    href=''
-                    className='group flex items-center rounded-md px-2 py-2 text-base font-medium text-cyan-100 hover:bg-cyan-600 hover:text-white'
-                  >
-                    <CogIcon
-                      className='mr-4 h-6 w-6 text-cyan-200'
-                      aria-hidden='true'
-                    />
-                    Configuración
-                  </a>
-                </div>
+              <div className='space-y-1 px-2'>
+                <Link
+                  to={'/ajustes'}
+                  key=''
+                  href=''
+                  className='text-cyan-100 hover:text-white hover:bg-cyan-600 group flex items-center px-2 py-2 text-base font-medium rounded-md'
+                >
+                  <DocumentChartBarIcon
+                    className='mr-4 h-6 w-6 flex-shrink-0 text-cyan-200'
+                    aria-hidden='true'
+                  />
+                  Configuración
+                </Link>
+              </div>
                 {/* Menu de ayuda*/}
                 <div className='space-y-1 px-2'>
                   <a
@@ -373,7 +374,7 @@ export default function Example({ children }) {
       <main>
         <div className='py-16'>
           <div className='mx-full max-w-screen-xl px-4 sm:px-6 md:px-8'>
-            <h1 className='text-2xl font-semibold text-gray-900'>Dashboard</h1>
+           
           </div>
           <div className='mx-auto max-w-7xl px-4 sm:px-6 md:px-8'>
             {/* Replace with your content */}
