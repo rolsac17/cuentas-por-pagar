@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Dialog, Transition } from '@headlessui/react';
+import { Dialog, Menu, Transition } from '@headlessui/react';
 import {
   Bars3CenterLeftIcon,
   ClockIcon,
@@ -98,20 +98,6 @@ export default function Example({ children }) {
                     className='mt-5 h-full flex-shrink-0  overflow-y-auto'
                     aria-label='Sidebar'
                   >
-                    {/* Opción de pagina de inicio */}
-                    <div className='space-y-1 px-2'>
-                      <a
-                        key=''
-                        href=''
-                        className='text-cyan-100 hover:text-white hover:bg-cyan-600 group flex items-center px-2 py-2 text-base font-medium rounded-md'
-                      >
-                        <HomeIcon
-                          className='mr-4 h-6 w-6 flex-shrink-0 text-cyan-200'
-                          aria-hidden='true'
-                        />
-                        Inicio
-                      </a>
-                    </div>
                     {/* Opción de pagina de Historial */}
                     <div className='space-y-1 px-2'>
                       <a
@@ -184,7 +170,7 @@ export default function Example({ children }) {
                     </div>
                     {/* Menu de configuracion*/}
                     <div className='mt-6 pt-6'>
-                      <div className='space-y-1 px-2'>
+                      {/* <div className='space-y-1 px-2'>
                         <a
                           key=''
                           className='group flex items-center rounded-md px-2 py-2 text-base font-medium text-cyan-100 hover:bg-cyan-600 hover:text-white'
@@ -195,7 +181,7 @@ export default function Example({ children }) {
                           />
                           Configuración
                         </a>
-                      </div>
+                      </div> */}
                       {/* Menu de ayuda*/}
                       <div className='space-y-1 px-2'>
                         <a
@@ -232,51 +218,24 @@ export default function Example({ children }) {
               />
             </div>
             <nav
-              className='mt-5 flex flex-1 flex-col overflow-y-auto'
+              className='mt-5 flex flex-col overflow-y-auto justify-between h-full'
               aria-label='Sidebar'
+              style={{paddingTop:"15%", paddingBottom:"15%"}}
             >
-              {/* Opción de pagina de inicio */}
-              <div className='space-y-1 px-2'>
-                <a
-                  key=''
-                  href=''
-                  className='text-cyan-100 hover:text-white hover:bg-cyan-600 group flex items-center px-2 py-2 text-base font-medium rounded-md'
-                >
-                  <HomeIcon
-                    className='mr-4 h-6 w-6 flex-shrink-0 text-cyan-200'
-                    aria-hidden='true'
-                  />
-                  Inicio
-                </a>
-              </div>
               {/* Opción de pagina de Historial */}
               <div className='space-y-1 px-2'>
                 <Link
                   to={'/historial'}
                   key=''
                   href=''
-                  className='text-cyan-100 hover:text-white hover:bg-cyan-600 group flex items-center px-2 py-2 text-base font-medium rounded-md'
+                  className='text-cyan-100 hover:text-white hover:bg-cyan-600 group flex items-center px-2 py-2 font-medium text-xl rounded-md'
                 >
                   <ClockIcon
                     className='mr-4 h-6 w-6 flex-shrink-0 text-cyan-200'
                     aria-hidden='true'
                   />
-                  Historial
+                  Estados de Cuenta
                 </Link>
-              </div>
-              {/* Opción de pagina de Balance */}
-              <div className='space-y-1 px-2'>
-                <a
-                  key=''
-                  href=''
-                  className='text-cyan-100 hover:text-white hover:bg-cyan-600 group flex items-center px-2 py-2 text-base font-medium rounded-md'
-                >
-                  <ScaleIcon
-                    className='mr-4 h-6 w-6 flex-shrink-0 text-cyan-200'
-                    aria-hidden='true'
-                  />
-                  Balance
-                </a>
               </div>
               {/* Opción de pagina de Factura */}
               <div className='space-y-1 px-2'>
@@ -284,7 +243,7 @@ export default function Example({ children }) {
                   to={'/factura'}
                   key=''
                   href=''
-                  className='text-cyan-100 hover:text-white hover:bg-cyan-600 group flex items-center px-2 py-2 text-base font-medium rounded-md'
+                  className='text-cyan-100 hover:text-white hover:bg-cyan-600 group flex items-center px-2 py-2 text-xl font-medium rounded-md'
                 >
                   <CreditCardIcon
                     className='mr-4 h-6 w-6 flex-shrink-0 text-cyan-200'
@@ -299,7 +258,7 @@ export default function Example({ children }) {
                   to={'/proveedores'}
                   key=''
                   href=''
-                  className='text-cyan-100 hover:text-white hover:bg-cyan-600 group flex items-center px-2 py-2 text-base font-medium rounded-md'
+                  className='text-cyan-100 hover:text-white hover:bg-cyan-600 group flex items-center px-2 py-2 text-xl font-medium rounded-md'
                 >
                   <UserGroupIcon
                     className='mr-4 h-6 w-6 flex-shrink-0 text-cyan-200'
@@ -314,7 +273,7 @@ export default function Example({ children }) {
                   to={'/reportes'}
                   key=''
                   href=''
-                  className='text-cyan-100 hover:text-white hover:bg-cyan-600 group flex items-center px-2 py-2 text-base font-medium rounded-md'
+                  className='text-cyan-100 hover:text-white hover:bg-cyan-600 group flex items-center px-2 py-2 text-xl font-medium rounded-md'
                 >
                   <DocumentChartBarIcon
                     className='mr-4 h-6 w-6 flex-shrink-0 text-cyan-200'
@@ -324,33 +283,20 @@ export default function Example({ children }) {
                 </Link>
               </div>
               <div className='mt-6 pt-6'>
-                <div className='space-y-1 px-2'>
-                  <a
-                    key=''
-                    href=''
-                    className='group flex items-center rounded-md px-2 py-2 text-base font-medium text-cyan-100 hover:bg-cyan-600 hover:text-white'
-                  >
-                    <CogIcon
-                      className='mr-4 h-6 w-6 text-cyan-200'
-                      aria-hidden='true'
-                    />
-                    Configuración
-                  </a>
-                </div>
-                {/* Menu de ayuda*/}
-                <div className='space-y-1 px-2'>
-                  <a
-                    key=''
-                    href=''
-                    className='group flex items-center rounded-md px-2 py-2 text-base font-medium text-cyan-100 hover:bg-cyan-600 hover:text-white'
-                  >
-                    <QuestionMarkCircleIcon
-                      className='mr-4 h-6 w-6 text-cyan-200'
-                      aria-hidden='true'
-                    />
-                    Ayuda
-                  </a>
-                </div>
+              {/* <div className='space-y-1 px-2'>
+                <Link
+                  to={'/ajustes'}
+                  key=''
+                  href=''
+                  className='text-cyan-100 hover:text-white hover:bg-cyan-600 group flex items-center px-2 py-2 text-base font-medium rounded-md'
+                >
+                  <DocumentChartBarIcon
+                    className='mr-4 h-6 w-6 flex-shrink-0 text-cyan-200'
+                    aria-hidden='true'
+                  />
+                  Configuración
+                </Link>
+              </div> */}
               </div>
             </nav>
           </div>
@@ -364,25 +310,23 @@ export default function Example({ children }) {
               className='border-r border-gray-200 px-4 text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-cyan-500 lg:hidden'
               onClick={() => setSidebarOpen(true)}
             >
-              <span className='sr-only'>Open sidebar</span>
+              <span className='sr-only'>Abrir Barra</span>
               <Bars3CenterLeftIcon className='h-6 w-6' aria-hidden='true' />
             </button>
           </div>
         </div>
       </div>
-      <main>
-        <div className='py-16'>
-          <div className='mx-full max-w-screen-xl px-4 sm:px-6 md:px-8'>
-            <h1 className='text-2xl font-semibold text-gray-900'>Dashboard</h1>
+      <main className='w-full'>
+        <div className='py-16 w-full'>
+          <div className='mx-full max-w-screen-xl px-4 sm:px-6 md:px-8 w-full'>
+           
           </div>
-          <div className='mx-auto max-w-7xl px-4 sm:px-6 md:px-8'>
+          <div className='w-full'>
             {/* Replace with your content */}
 
-            <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
+            <div className='w-full'>
               {children}
             </div>
-
-            {/* /End replace */}
           </div>
         </div>
       </main>

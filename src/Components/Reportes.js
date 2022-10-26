@@ -1,8 +1,11 @@
 import React from 'react';
+import Menu from './Menu';
 
 const Reportes = () => {
     return ( 
-        <div className='flex flex-col center container w-full items-center'>
+        <>
+        <Menu>
+        <div className='w-full flex flex-col center container items-center'>
             <div className="container m-5 content-center" style={{width:"95%"}}>
 
                 <header className="bg-[#a21caf] rounded-3xl">
@@ -13,10 +16,10 @@ const Reportes = () => {
                     <table className="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th>ID Proveedor</th>
-                                <th>Proveedor</th>
-                                <th>Correo</th>
-                                <th>Telefono</th>
+                                <th>ID Reporte</th>
+                                <th>Tipo Reporte</th>
+                                <th>Observaciones</th>
+                                <th>Extras</th>
                             </tr>
                         </thead>
 
@@ -29,6 +32,8 @@ const Reportes = () => {
 
             </div>
         </div>
+            </Menu></>
+        
      );
 }
  

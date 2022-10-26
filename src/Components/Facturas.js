@@ -11,9 +11,10 @@ class Factura extends React.Component {
       "noFactura":"",
       "totalFactura":"",
       "proveedorId":""
-    }
+    },
+    estado:false
   }
-
+  
   //=========AgregarFacturas===============================
   manejadorChange = async e=>{
     await this.setState({
@@ -24,6 +25,7 @@ class Factura extends React.Component {
     })
 
   }
+  
 
   AgregarFactura=()=>{
     let url = baseUrl + apiFacturasUrl;
@@ -52,19 +54,20 @@ class Factura extends React.Component {
   }
 
   render() {
+    
+    //const [count, setCount] = useState(0);
     return (
       <>
-        <Menu>
-          <div className='flex flex-col center container w-full items-center'>
-            <div
-              className='container m-5 justify-center'
-              style={{ width: '95%' }}
-            >
-              <header className='bg-[#a21caf] rounded-3xl'>
-                <h1 className='text-center text-white hover:text-white px-2 py-2 text-base font-medium rounded-md'>
-                  Formulario de Facturación
-                </h1>
-              </header>
+        <Menu>  
+        <div className='w-full flex flex-col center container items-center'>
+          <div className='container m-5'style={{ width: '95%' }}
+          >
+            <header className='bg-[#a21caf] rounded-3xl'>
+              <h1 className='text-center text-white hover:text-white px-2 py-2 text-base font-medium rounded-md'>
+                Formulario de Facturación
+              </h1>
+            </header>
+
   
               <main className='px-1 pt-6'>
                 <form action=''>
@@ -97,12 +100,13 @@ class Factura extends React.Component {
                     autoComplete='off'
                     onChange={this.manejadorChange}
                   />
-  
+
                   <input
                     style={{ color: 'black' }}
                     type='button'
                     value='Guardar'
-                    className='btn btn-dark mt-3 mb-3 rounded-3xl'
+                    className='btn btn-dark mt-3 mb-3 rounded-3xl' 
+                    id='button'
                     onClick={this.AgregarFactura}
                   />
                 </form>

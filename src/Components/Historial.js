@@ -1,4 +1,5 @@
 import React from 'react';
+import Menu from './Menu';
 import {
     BanknotesIcon,
     ChevronRightIcon
@@ -7,6 +8,7 @@ import {
   import {
     ScaleIcon,
     ArrowsRightLeftIcon,
+    ServerIcon,
   } from '@heroicons/react/24/outline';
 
   
@@ -24,15 +26,22 @@ import {
       icon: ArrowsRightLeftIcon,
       amount: 'Q19,500.00',
     },
+    {
+      name: 'Ganancias',
+      href: '#',
+      icon: ServerIcon ,
+      amount: 'Q10,000.00',
+    },
+    
     // More items...
   ];
   const transactions = [
     {
       id: 1,
-      name: 'Payment to Molly Sanders',
+      name: 'Pago a Rosa Sanders',
       href: '#',
-      amount: '$20,000',
-      currency: 'USD',
+      amount: '20,000',
+      currency: 'Q',
       status: 'success',
       date: 'July 11, 2020',
       datetime: '2020-07-11',
@@ -51,21 +60,20 @@ import {
 
 const Historial = () => {
     return ( 
-        <div className='w-full'>
+      <>
+      <Menu>
+      <div className='w-full'>
             <main className='pb-8'>
-            <div className='mt-8'>
+            <div className='mt-8 lg:mt-2'>
               {/* Inicio de Menu de cards*/}
-              <div className='mx-auto max-w-6xl px-4 sm:px-6 lg:px-8'>
-                <h2 className='text-lg font-medium leading-6 text-gray-900'>
-                  Tablero
+              <div className='px-4 sm:px-6 lg:px-8'>
+                <h2 className='text-3xl font-extrabold leading-6 text-gray-900 font-serif'>
+                  Historial de Cuenta
                 </h2>
-                <div className='mt-2 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3'>
+                <div className='w-full mt-2 grid grid-cols-1 gap-10 sm:grid-cols-2 pr-0 pl-0 gap-1 lg:grid-cols-3 lg:pr-40 pl-40'>
                   {/* Card */}
                   {cards.map((card) => (
-                    <div
-                      key={card.name}
-                      className='overflow-hidden rounded-lg bg-white shadow'
-                    >
+                    <div key={card.name} className='overflow-hidden rounded-lg bg-white shadow'>
                       <div className='p-5'>
                         <div className='flex items-center'>
                           <div className='flex-shrink-0'>
@@ -84,6 +92,7 @@ const Historial = () => {
                                   {card.amount}
                                 </div>
                               </dd>
+                              
                             </dl>
                           </div>
                         </div>
@@ -93,18 +102,18 @@ const Historial = () => {
                           <a
                             href={card.href}
                             className='font-medium text-cyan-700 hover:text-cyan-900'
-                          >
-                            View all
+                          >Ver Todo
                           </a>
                         </div>
                       </div>
+                      
                     </div>
                   ))}
                 </div>
               </div>
               {/* Fin de Menu de cards*/}
 
-              <h2 className='mx-auto mt-8 max-w-6xl px-4 text-lg font-medium leading-6 text-gray-900 sm:px-6 lg:px-8'>
+              <h2 className='text-3xl font-extrabold mt-8 px-4 leading-6 text-gray-900 sm:px-6 lg:px-8 mb-8 font-serif'>
                 Actividad Reciente
               </h2>
 
@@ -131,10 +140,10 @@ const Historial = () => {
                                 {transaction.name}
                               </span>
                               <span>
+                              {transaction.currency+" "}
                                 <span className='font-medium text-gray-900'>
                                   {transaction.amount}
                                 </span>{' '}
-                                {transaction.currency}
                               </span>
                               <time dateTime={transaction.datetime}>
                                 {transaction.date}
@@ -160,13 +169,13 @@ const Historial = () => {
                       href='#'
                       className='relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:text-gray-500'
                     >
-                      Previous
+                      Anterior
                     </a>
                     <a
                       href='#'
                       className='relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:text-gray-500'
                     >
-                      Next
+                      Siguiente
                     </a>
                   </div>
                 </nav>
@@ -174,7 +183,7 @@ const Historial = () => {
 
               {/* Activity table (small breakpoint and up) */}
               <div className='hidden sm:block'>
-                <div className='mx-auto max-w-6xl px-4 sm:px-6 lg:px-8'>
+                <div className='w-full pl-40 pr-40'>
                   <div className='mt-2 flex flex-col'>
                     <div className='min-w-full overflow-hidden overflow-x-auto align-middle shadow sm:rounded-lg'>
                       <table className='min-w-full divide-y divide-gray-200'>
@@ -184,25 +193,25 @@ const Historial = () => {
                               className='bg-gray-50 px-6 py-3 text-left text-sm font-semibold text-gray-900'
                               scope='col'
                             >
-                              Transaction
+                              Transacción
                             </th>
                             <th
                               className='bg-gray-50 px-6 py-3 text-right text-sm font-semibold text-gray-900'
                               scope='col'
                             >
-                              Amount
+                              Cantidad
                             </th>
                             <th
                               className='hidden bg-gray-50 px-6 py-3 text-left text-sm font-semibold text-gray-900 md:block'
                               scope='col'
                             >
-                              Status
+                              Estado
                             </th>
                             <th
                               className='bg-gray-50 px-6 py-3 text-right text-sm font-semibold text-gray-900'
                               scope='col'
                             >
-                              Date
+                              Fecha
                             </th>
                           </tr>
                         </thead>
@@ -226,10 +235,10 @@ const Historial = () => {
                                 </div>
                               </td>
                               <td className='whitespace-nowrap px-6 py-4 text-right text-sm text-gray-500'>
+                              {transaction.currency+" "}
                                 <span className='font-medium text-gray-900'>
                                   {transaction.amount}
                                 </span>
-                                {transaction.currency}
                               </td>
                               <td className='hidden whitespace-nowrap px-6 py-4 text-sm text-gray-500 md:block'>
                                 <span
@@ -257,9 +266,9 @@ const Historial = () => {
                       >
                         <div className='hidden sm:block'>
                           <p className='text-sm text-gray-700'>
-                            Showing <span className='font-medium'>1</span> to{' '}
-                            <span className='font-medium'>10</span> of{' '}
-                            <span className='font-medium'>20</span> results
+                            Mostrando <span className='font-medium'>1</span> to{' '}
+                            <span className='font-medium'>10</span> de{' '}
+                            <span className='font-medium'>20</span> resultados
                           </p>
                         </div>
                         <div className='flex flex-1 justify-between sm:justify-end'>
@@ -267,13 +276,13 @@ const Historial = () => {
                             href='#'
                             className='relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50'
                           >
-                            Previous
+                            Anterior
                           </a>
                           <a
                             href='#'
                             className='relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50'
                           >
-                            Next
+                            Siguiente
                           </a>
                         </div>
                       </nav>
@@ -285,6 +294,8 @@ const Historial = () => {
           </main>
 
         </div>
+        </Menu></>
+        
      );
 }
  

@@ -37,7 +37,7 @@ class Login extends React.Component {
   render() { 
     return ( 
       <div className='flex flex-col center container w-full items-center'>
-          <div className='flex flex-col items-center justify-center text-center w-4/5'>
+          <div className='flex flex-col items-center text-center w-4/5 h-full align-middle justify-center pt-40'>
           <div className="w-1/2">
             <div className="w-full space-y-8">
               <div>
@@ -56,7 +56,7 @@ class Login extends React.Component {
                 <div className="-space-y-px rounded-md shadow-sm">
                   <div>
                     <label htmlFor="email-address" className="sr-only">
-                      Email address
+                      Dirección de Correo Electrónico
                     </label>
                     <input
                       id="email-address"
@@ -99,10 +99,10 @@ class Login extends React.Component {
                   <Link to={"/menu"}
                     onClick={this.manejadorBoton}
                     type="submit"
-                    className="group relative flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                    className="group relative flex w-full justify-center rounded-md border border-transparent bg-[#701a75] py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                   >
                     <span className="absolute inset-y-0 left-0 flex items-center pl-3">
-                      <LockClosedIcon className="h-5 w-5 text-indigo-500 group-hover:text-indigo-400" aria-hidden="true" />
+                      <LockClosedIcon className="h-5 w-5 text-indigo-300 group-hover:text-white" aria-hidden="true" />
                     </span>
                     Entrar
                   </Link>

@@ -1,8 +1,10 @@
 import React from 'react';
-
+import Menu from './Menu';
 const Proveedores = () => {
     return ( 
-        <div className='flex flex-col center container w-full items-center'>
+        <>
+        <Menu>
+        <div className='w-full flex flex-col center container items-center'>
             <div className="container m-5 content-center" style={{width:"95%"}}>
 
                 <header className="bg-[#a21caf] rounded-3xl">
@@ -25,7 +27,7 @@ const Proveedores = () => {
                         <label htmlFor="telefono">Telefono</label>
                         <input type="number" id="telefono" name="telefono" className="form-control rounded-3xl" autoComplete="off"/>
 
-                        <input style={{color: "black"}} type="button" value = "Guardar" className="btn btn-success mt-3 mb-3 rounded-3xl" />
+                        <input style={{color: "black"}} type="button" value = "Guardar" className="btn btn-success mt-3 mb-3 rounded-3xl"/>
 
                     </form>
 
@@ -50,6 +52,8 @@ const Proveedores = () => {
 
             </div>
         </div>
+        </Menu>
+        </>
      );
 }
  

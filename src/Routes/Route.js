@@ -7,6 +7,7 @@ import Reportes from '../Components/Reportes';
 import Factura from '../Components/Facturas';
 import Historial from '../Components/Historial';
 import Resumen from '../Components/Resumen';
+import Ajuste from '../Components/Ajustes';
 
 function Rutas() {
   return (
@@ -17,6 +18,7 @@ function Rutas() {
         <Route path='/reportes' element={<Reportes />} />
         <Route path='/factura' element={<Factura />} />
         <Route path='/historial' element={<Historial />} />
+        <Route path='/ajustes' element={<Ajuste />} />
         <Route path='/' element={<Login />} />
       </Routes>
     </Router>
