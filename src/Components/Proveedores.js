@@ -1,6 +1,5 @@
 import React from 'react';
 import Menu from './Menu';
-
 const Proveedores = () => {
     return ( 
         <>
@@ -28,7 +27,7 @@ const Proveedores = () => {
                         <label htmlFor="telefono">Telefono</label>
                         <input type="number" id="telefono" name="telefono" className="form-control rounded-3xl" autoComplete="off"/>
 
-                        <input style={{color: "black"}} type="button" value = "Guardar" className="btn btn-success mt-3 mb-3 rounded-3xl" />
+                        <input style={{color: "black"}} type="button" value = "Guardar" className="btn btn-success mt-3 mb-3 rounded-3xl"/>
 
                     </form>
 
