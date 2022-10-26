@@ -1,79 +1,146 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Menu from './Menu';
+import axios from 'axios';
+import {baseUrl, apiFacturasUrl} from '../Servicios/api';
 
-const Factura = () => {
-  return (
-    <>
-      <Menu>
-        <div className='flex flex-col center container w-full items-center'>
-          <div
-            className='container m-5 justify-center'
-            style={{ width: '95%' }}
-          >
-            <header className='bg-[#a21caf] rounded-3xl'>
-              <h1 className='text-center text-white hover:text-white px-2 py-2 text-base font-medium rounded-md'>
-                Formulario de Facturación
-              </h1>
-            </header>
+class Factura extends React.Component {
+  
+  state = {
+    facturas:[],
+    AddFacturas:{
+      "noFactura":"",
+      "totalFactura":"",
+      "proveedorId":""
+    }
+  }
 
-            <main className='px-1 pt-6'>
-              <form action=''>
-                <label htmlFor='id'>No. Factura</label>
-                <input
-                  type='number'
-                  id='id'
-                  name='id'
-                  className='form-control rounded-3xl'
-                  autoComplete='off'
-                />
+  //=========AgregarFacturas===============================
+  manejadorChange = async e=>{
+    await this.setState({
+      AddFacturas:{
+        ...this.state.AddFacturas,
+        [e.target.name]:e.target.value
+      }
+    })
 
-                <label htmlFor='nombre'>Id Proveedor</label>
-                <input
-                  type='number'
-                  id='nombre'
-                  name='nombre'
-                  className='form-control rounded-3xl'
-                  autoComplete='off'
-                />
+  }
 
-                <label htmlFor='total'>Total Factura</label>
-                <input
-                  type='number'
-                  id='total'
-                  name='total'
-                  className='form-control rounded-3xl'
-                  autoComplete='off'
-                />
+  AgregarFactura=()=>{
+    let url = baseUrl + apiFacturasUrl;
 
-                <input
-                  style={{ color: 'black' }}
-                  type='button'
-                  value='Guardar'
-                  className='btn btn-dark mt-3 mb-3 rounded-3xl'
-                />
-              </form>
+    axios.post(url, this.state.AddFacturas)
+    .then( response => {
+      console.log(response)
+    })
+  }
 
-              <hr />
+  //==========Poblacion De Las Tablas==========================
 
-              <table className='table table-bordered table-striped'>
-                <thead>
-                  <tr>
-                    <th>No. Factura</th>
-                    <th>Proveedor</th>
-                    <th>Total</th>
-                  </tr>
-                </thead>
+  clickFactura(id){
+    console.log(id);
+  }
 
-                <tbody id='detalle'></tbody>
-              </table>
-            </main>
+  componentDidMount(){
+    let url = baseUrl + apiFacturasUrl;
 
-            <footer></footer>
+    axios.get(url)
+    .then(response => {
+      this.setState({
+        facturas:response.data
+      })
+    })
+  }
+
+  render() {
+    return (
+      <>
+        <Menu>
+          <div className='flex flex-col center container w-full items-center'>
+            <div
+              className='container m-5 justify-center'
+              style={{ width: '95%' }}
+            >
+              <header className='bg-[#a21caf] rounded-3xl'>
+                <h1 className='text-center text-white hover:text-white px-2 py-2 text-base font-medium rounded-md'>
+                  Formulario de Facturación
+                </h1>
+              </header>
+  
+              <main className='px-1 pt-6'>
+                <form action=''>
+                  <label htmlFor='id'>No. Factura</label>
+                  <input
+                    type='number'
+                    id='noFactura'
+                    name='noFactura'
+                    className='form-control rounded-3xl'
+                    autoComplete='off'
+                    onChange={this.manejadorChange}
+                  />
+  
+                  <label htmlFor='nombre'>Id Proveedor</label>
+                  <input
+                    type='number'
+                    id='proveedorId'
+                    name='proveedorId'
+                    className='form-control rounded-3xl'
+                    autoComplete='off'
+                    onChange={this.manejadorChange}
+                  />
+  
+                  <label htmlFor='total'>Total Factura</label>
+                  <input
+                    type='number'
+                    id='total'
+                    name='totalFactura'
+                    className='form-control rounded-3xl'
+                    autoComplete='off'
+                    onChange={this.manejadorChange}
+                  />
+  
+                  <input
+                    style={{ color: 'black' }}
+                    type='button'
+                    value='Guardar'
+                    className='btn btn-dark mt-3 mb-3 rounded-3xl'
+                    onClick={this.AgregarFactura}
+                  />
+                </form>
+  
+                <hr />
+  
+                <table className='table table-bordered table-striped'>
+                  <thead>
+                    <tr>
+                      <th>Id Factura</th>
+                      <th>No. Factura</th>
+                      <th>Proveedor</th>
+                      <th>Total</th>
+                    </tr>
+                  </thead>
+  
+                  <tbody >
+                    {this.state.facturas.map((value, index)=>{
+                      return(
+                        <tr key={index} onClick={()=>this.clickFactura(value.facturaId)}>
+                          <td>{value.facturaId}</td>
+                          <td>{value.noFactura}</td>
+                          <td>{value.proveedorId}</td>
+                          <td>{value.totalFactura}</td>
+                        </tr>
+                      )
+                    })}
+                  </tbody>
+                </table>
+              </main>
+  
+              <footer></footer>
+            </div>
           </div>
-        </div>
-      </Menu>
-    </>
-  );
+        </Menu>
+      </>
+    );
+  }
 };
 
 export default Factura;
