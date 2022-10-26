@@ -27,11 +27,12 @@ import {
       amount: 'Q19,500.00',
     },
     {
-      name: 'Lo Otro',
+      name: 'Ganancias',
       href: '#',
       icon: ServerIcon ,
       amount: 'Q10,000.00',
     },
+    
     // More items...
   ];
   const transactions = [
@@ -67,7 +68,7 @@ const Historial = () => {
               {/* Inicio de Menu de cards*/}
               <div className='px-4 sm:px-6 lg:px-8'>
                 <h2 className='text-3xl font-extrabold leading-6 text-gray-900 font-serif'>
-                  Tablero
+                  Historial de Cuenta
                 </h2>
                 <div className='w-full mt-2 grid grid-cols-1 gap-10 sm:grid-cols-2 pr-0 pl-0 gap-1 lg:grid-cols-3 lg:pr-40 pl-40'>
                   {/* Card */}

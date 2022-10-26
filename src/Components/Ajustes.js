@@ -90,7 +90,7 @@ const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   return (
     <>
     <Menu>
-      <div className="flex h-full">     
+      <div className="flex flex-col h-full content-center">     
         <Transition.Root show={mobileMenuOpen} as={Fragment}>
           <Dialog as="div" className="relative z-40 lg:hidden" onClose={setMobileMenuOpen}>
             <Transition.Child
@@ -193,12 +193,12 @@ const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
         </Transition.Root>
 
 
-        <div className="flex min-w-0 flex-1 flex-col overflow-hidden">
+        <div className="flex flex-col center container items-center overflow-hidden w-full">
           {/* Mobile top navigation */}
           <div className="lg:hidden">
           </div>
 
-          <main className="flex flex-1 overflow-hidden">
+          <main className="flex flex-1 overflow-hidden" style={{width:"80%"}}>
             <div className="flex flex-1 flex-col overflow-y-auto xl:overflow-hidden">
               {/* Breadcrumb */}
               <nav aria-label="Breadcrumb" className="border-b border-blue-gray-200 bg-white xl:hidden">
@@ -213,12 +213,12 @@ const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
                 </div>
               </nav>
 
-              <div className="flex flex-1 xl:overflow-hidden">
+              <div className="w-full flex flex-1 xl:overflow-hidden">
 
                 {/* Main content */}
-                <div className="flex-1 xl:overflow-y-auto">
-                  <div className="max-w-3xl sm:px-6 lg:py-12 lg:px-8">
-                    <h1 className="text-3xl font-bold tracking-tight text-blue-gray-900">Cuenta</h1>
+                <div className="flex-1 xl:overflow-y-auto w-full">
+                  <div className="w-full sm:px-6 lg:py-12 lg:px-8">
+                    <h1 className="text-3xl font-bold tracking-tight text-blue-gray-900 text-center">Cuenta</h1>
 
                     <form className="divide-y-blue-gray-200 mt-6 space-y-8 divide-y">
                       <div className="grid grid-cols-1 gap-y-6 sm:grid-cols-6 sm:gap-x-6">
@@ -380,13 +380,13 @@ const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
                       <div className="flex justify-end pt-8">
                         <button
                           type="button"
-                          className="rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-blue-gray-900 shadow-sm hover:bg-blue-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                          className="rounded-md border border-gray-300 bg-[#dc2626] text-white py-2 px-4 text-sm font-medium text-blue-gray-900 shadow-sm hover:bg-blue-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                         >
                          Cancelar
                         </button>
                         <button
                           type="submit"
-                          className="ml-3 inline-flex justify-center rounded-md border border-transparent bg-blue-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                          className="ml-3 inline-flex justify-center rounded-md border border-transparent bg-[#701a75] py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                         >
                           Guardar
                         </button>

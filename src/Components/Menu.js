@@ -170,7 +170,7 @@ export default function Example({ children }) {
                     </div>
                     {/* Menu de configuracion*/}
                     <div className='mt-6 pt-6'>
-                      <div className='space-y-1 px-2'>
+                      {/* <div className='space-y-1 px-2'>
                         <a
                           key=''
                           className='group flex items-center rounded-md px-2 py-2 text-base font-medium text-cyan-100 hover:bg-cyan-600 hover:text-white'
@@ -181,7 +181,7 @@ export default function Example({ children }) {
                           />
                           Configuración
                         </a>
-                      </div>
+                      </div> */}
                       {/* Menu de ayuda*/}
                       <div className='space-y-1 px-2'>
                         <a
@@ -218,8 +218,9 @@ export default function Example({ children }) {
               />
             </div>
             <nav
-              className='mt-5 flex flex-1 flex-col overflow-y-auto'
+              className='mt-5 flex flex-col overflow-y-auto justify-between h-full'
               aria-label='Sidebar'
+              style={{paddingTop:"15%", paddingBottom:"15%"}}
             >
               {/* Opción de pagina de Historial */}
               <div className='space-y-1 px-2'>
@@ -227,7 +228,7 @@ export default function Example({ children }) {
                   to={'/historial'}
                   key=''
                   href=''
-                  className='text-cyan-100 hover:text-white hover:bg-cyan-600 group flex items-center px-2 py-2 text-base font-medium rounded-md'
+                  className='text-cyan-100 hover:text-white hover:bg-cyan-600 group flex items-center px-2 py-2 font-medium text-xl rounded-md'
                 >
                   <ClockIcon
                     className='mr-4 h-6 w-6 flex-shrink-0 text-cyan-200'
@@ -242,7 +243,7 @@ export default function Example({ children }) {
                   to={'/factura'}
                   key=''
                   href=''
-                  className='text-cyan-100 hover:text-white hover:bg-cyan-600 group flex items-center px-2 py-2 text-base font-medium rounded-md'
+                  className='text-cyan-100 hover:text-white hover:bg-cyan-600 group flex items-center px-2 py-2 text-xl font-medium rounded-md'
                 >
                   <CreditCardIcon
                     className='mr-4 h-6 w-6 flex-shrink-0 text-cyan-200'
@@ -257,7 +258,7 @@ export default function Example({ children }) {
                   to={'/proveedores'}
                   key=''
                   href=''
-                  className='text-cyan-100 hover:text-white hover:bg-cyan-600 group flex items-center px-2 py-2 text-base font-medium rounded-md'
+                  className='text-cyan-100 hover:text-white hover:bg-cyan-600 group flex items-center px-2 py-2 text-xl font-medium rounded-md'
                 >
                   <UserGroupIcon
                     className='mr-4 h-6 w-6 flex-shrink-0 text-cyan-200'
@@ -272,7 +273,7 @@ export default function Example({ children }) {
                   to={'/reportes'}
                   key=''
                   href=''
-                  className='text-cyan-100 hover:text-white hover:bg-cyan-600 group flex items-center px-2 py-2 text-base font-medium rounded-md'
+                  className='text-cyan-100 hover:text-white hover:bg-cyan-600 group flex items-center px-2 py-2 text-xl font-medium rounded-md'
                 >
                   <DocumentChartBarIcon
                     className='mr-4 h-6 w-6 flex-shrink-0 text-cyan-200'
@@ -282,7 +283,7 @@ export default function Example({ children }) {
                 </Link>
               </div>
               <div className='mt-6 pt-6'>
-              <div className='space-y-1 px-2'>
+              {/* <div className='space-y-1 px-2'>
                 <Link
                   to={'/ajustes'}
                   key=''
@@ -295,7 +296,7 @@ export default function Example({ children }) {
                   />
                   Configuración
                 </Link>
-              </div>
+              </div> */}
               </div>
             </nav>
           </div>
@@ -309,7 +310,7 @@ export default function Example({ children }) {
               className='border-r border-gray-200 px-4 text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-cyan-500 lg:hidden'
               onClick={() => setSidebarOpen(true)}
             >
-              <span className='sr-only'>Open sidebar</span>
+              <span className='sr-only'>Abrir Barra</span>
               <Bars3CenterLeftIcon className='h-6 w-6' aria-hidden='true' />
             </button>
           </div>
