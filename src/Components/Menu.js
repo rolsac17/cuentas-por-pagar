@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Dialog,  Transition } from '@headlessui/react';
+import { Dialog, Menu, Transition } from '@headlessui/react';
 import {
   Bars3CenterLeftIcon,
   ClockIcon,
@@ -14,7 +14,6 @@ import {
   XMarkIcon,
   ArrowsRightLeftIcon,
 } from '@heroicons/react/24/outline';
-
 
 // const navigation = [
 //   { name: 'Inicio', href: '#', icon: HomeIcon, current: true },
@@ -30,10 +29,7 @@ import {
 //   { name: 'Privacidad', href: '#', icon: ShieldCheckIcon },
 // ];
 
-
-
-
-export default function Example() {
+export default function Example({ children }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
@@ -102,20 +98,6 @@ export default function Example() {
                     className='mt-5 h-full flex-shrink-0  overflow-y-auto'
                     aria-label='Sidebar'
                   >
-                    {/* Opción de pagina de inicio */}
-                    <div className='space-y-1 px-2'>
-                      <a
-                        key=''
-                        href=''
-                        className='text-cyan-100 hover:text-white hover:bg-cyan-600 group flex items-center px-2 py-2 text-base font-medium rounded-md'
-                      >
-                        <HomeIcon
-                          className='mr-4 h-6 w-6 flex-shrink-0 text-cyan-200'
-                          aria-hidden='true'
-                        />
-                        Inicio
-                      </a>
-                    </div>
                     {/* Opción de pagina de Historial */}
                     <div className='space-y-1 px-2'>
                       <a
@@ -160,7 +142,8 @@ export default function Example() {
                     </div>
                     {/* Opción de pagina de Proveedores */}
                     <div className='space-y-1 px-2'>
-                      <Link to={"/proveedores"}
+                      <Link
+                        to={'/proveedores'}
                         key=''
                         className='text-cyan-100 hover:text-white hover:bg-cyan-600 group flex items-center px-2 py-2 text-base font-medium rounded-md'
                       >
@@ -187,7 +170,7 @@ export default function Example() {
                     </div>
                     {/* Menu de configuracion*/}
                     <div className='mt-6 pt-6'>
-                      <div className='space-y-1 px-2'>
+                      {/* <div className='space-y-1 px-2'>
                         <a
                           key=''
                           className='group flex items-center rounded-md px-2 py-2 text-base font-medium text-cyan-100 hover:bg-cyan-600 hover:text-white'
@@ -198,7 +181,7 @@ export default function Example() {
                           />
                           Configuración
                         </a>
-                      </div>
+                      </div> */}
                       {/* Menu de ayuda*/}
                       <div className='space-y-1 px-2'>
                         <a
@@ -226,66 +209,41 @@ export default function Example() {
         {/* Static sidebar para escritorio*/}
         <div className='hidden lg:fixed lg:inset-y-0 lg:inset-x-0 lg:flex lg:w-64 lg:flex-col'>
           {/* Componente de la barra lateral, intercambie este elemento con otra barra lateral si lo desea */}
-          <div className='flex flex-grow flex-col overflow-y-auto bg-cyan-700 pt-5 pb-4'>
-            <div className='flex flex-shrink-0 items-center px-4'>
+          <div className='flex flex-grow flex-col overflow-y-auto bg-[#a21caf] pt-5 pb-4 items-center'>
+            <div className='flex items-center h-40 w-40'>
               <img
-                className='h-8 w-auto'
+                className='h-40 w-40'
                 src='https://images.vexels.com/media/users/3/224169/isolated/lists/dbfe1f493ad01117fa4ec5ba10150e4d-logotipo-de-programaci-n-inform-tica.png'
                 alt='Easywire logo'
               />
             </div>
             <nav
-              className='mt-5 flex flex-1 flex-col overflow-y-auto'
+              className='mt-5 flex flex-col overflow-y-auto justify-between h-full'
               aria-label='Sidebar'
+              style={{paddingTop:"15%", paddingBottom:"15%"}}
             >
-              {/* Opción de pagina de inicio */}
-              <div className='space-y-1 px-2'>
-                <a
-                  key=''
-                  href=''
-                  className='text-cyan-100 hover:text-white hover:bg-cyan-600 group flex items-center px-2 py-2 text-base font-medium rounded-md'
-                >
-                  <HomeIcon
-                    className='mr-4 h-6 w-6 flex-shrink-0 text-cyan-200'
-                    aria-hidden='true'
-                  />
-                  Inicio
-                </a>
-              </div>
               {/* Opción de pagina de Historial */}
               <div className='space-y-1 px-2'>
-                <Link to={"/historial"}
+                <Link
+                  to={'/historial'}
                   key=''
                   href=''
-                  className='text-cyan-100 hover:text-white hover:bg-cyan-600 group flex items-center px-2 py-2 text-base font-medium rounded-md'
+                  className='text-cyan-100 hover:text-white hover:bg-cyan-600 group flex items-center px-2 py-2 font-medium text-xl rounded-md'
                 >
                   <ClockIcon
                     className='mr-4 h-6 w-6 flex-shrink-0 text-cyan-200'
                     aria-hidden='true'
                   />
-                  Historial
+                  Estados de Cuenta
                 </Link>
-              </div>
-              {/* Opción de pagina de Balance */}
-              <div className='space-y-1 px-2'>
-                <a
-                  key=''
-                  href=''
-                  className='text-cyan-100 hover:text-white hover:bg-cyan-600 group flex items-center px-2 py-2 text-base font-medium rounded-md'
-                >
-                  <ScaleIcon
-                    className='mr-4 h-6 w-6 flex-shrink-0 text-cyan-200'
-                    aria-hidden='true'
-                  />
-                  Balance
-                </a>
               </div>
               {/* Opción de pagina de Factura */}
               <div className='space-y-1 px-2'>
-                <Link to={"/factura"}
+                <Link
+                  to={'/factura'}
                   key=''
                   href=''
-                  className='text-cyan-100 hover:text-white hover:bg-cyan-600 group flex items-center px-2 py-2 text-base font-medium rounded-md'
+                  className='text-cyan-100 hover:text-white hover:bg-cyan-600 group flex items-center px-2 py-2 text-xl font-medium rounded-md'
                 >
                   <CreditCardIcon
                     className='mr-4 h-6 w-6 flex-shrink-0 text-cyan-200'
@@ -296,10 +254,11 @@ export default function Example() {
               </div>
               {/* Opción de pagina de Proveedores */}
               <div className='space-y-1 px-2'>
-                <Link to={"/proveedores"}
+                <Link
+                  to={'/proveedores'}
                   key=''
                   href=''
-                  className='text-cyan-100 hover:text-white hover:bg-cyan-600 group flex items-center px-2 py-2 text-base font-medium rounded-md'
+                  className='text-cyan-100 hover:text-white hover:bg-cyan-600 group flex items-center px-2 py-2 text-xl font-medium rounded-md'
                 >
                   <UserGroupIcon
                     className='mr-4 h-6 w-6 flex-shrink-0 text-cyan-200'
@@ -310,10 +269,11 @@ export default function Example() {
               </div>
               {/* Opción de pagina de Reportes */}
               <div className='space-y-1 px-2'>
-                <Link to={"/reportes"}
+                <Link
+                  to={'/reportes'}
                   key=''
                   href=''
-                  className='text-cyan-100 hover:text-white hover:bg-cyan-600 group flex items-center px-2 py-2 text-base font-medium rounded-md'
+                  className='text-cyan-100 hover:text-white hover:bg-cyan-600 group flex items-center px-2 py-2 text-xl font-medium rounded-md'
                 >
                   <DocumentChartBarIcon
                     className='mr-4 h-6 w-6 flex-shrink-0 text-cyan-200'
@@ -323,33 +283,20 @@ export default function Example() {
                 </Link>
               </div>
               <div className='mt-6 pt-6'>
-                <div className='space-y-1 px-2'>
-                  <a
-                    key=''
-                    href=''
-                    className='group flex items-center rounded-md px-2 py-2 text-base font-medium text-cyan-100 hover:bg-cyan-600 hover:text-white'
-                  >
-                    <CogIcon
-                      className='mr-4 h-6 w-6 text-cyan-200'
-                      aria-hidden='true'
-                    />
-                    Configuración
-                  </a>
-                </div>
-                {/* Menu de ayuda*/}
-                <div className='space-y-1 px-2'>
-                  <a
-                    key=''
-                    href=''
-                    className='group flex items-center rounded-md px-2 py-2 text-base font-medium text-cyan-100 hover:bg-cyan-600 hover:text-white'
-                  >
-                    <QuestionMarkCircleIcon
-                      className='mr-4 h-6 w-6 text-cyan-200'
-                      aria-hidden='true'
-                    />
-                    Ayuda
-                  </a>
-                </div>
+              {/* <div className='space-y-1 px-2'>
+                <Link
+                  to={'/ajustes'}
+                  key=''
+                  href=''
+                  className='text-cyan-100 hover:text-white hover:bg-cyan-600 group flex items-center px-2 py-2 text-base font-medium rounded-md'
+                >
+                  <DocumentChartBarIcon
+                    className='mr-4 h-6 w-6 flex-shrink-0 text-cyan-200'
+                    aria-hidden='true'
+                  />
+                  Configuración
+                </Link>
+              </div> */}
               </div>
             </nav>
           </div>
@@ -363,13 +310,26 @@ export default function Example() {
               className='border-r border-gray-200 px-4 text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-cyan-500 lg:hidden'
               onClick={() => setSidebarOpen(true)}
             >
-              <span className='sr-only'>Open sidebar</span>
+              <span className='sr-only'>Abrir Barra</span>
               <Bars3CenterLeftIcon className='h-6 w-6' aria-hidden='true' />
             </button>
           </div>
-          
         </div>
       </div>
+      <main className='w-full'>
+        <div className='py-16 w-full'>
+          <div className='mx-full max-w-screen-xl px-4 sm:px-6 md:px-8 w-full'>
+           
+          </div>
+          <div className='w-full'>
+            {/* Replace with your content */}
+
+            <div className='w-full'>
+              {children}
+            </div>
+          </div>
+        </div>
+      </main>
     </>
   );
 }
