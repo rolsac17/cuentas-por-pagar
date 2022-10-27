@@ -112,20 +112,6 @@ export default function Example({ children }) {
                         Historial
                       </a>
                     </div>
-                    {/* Opción de pagina de Balance */}
-                    <div className='space-y-1 px-2'>
-                      <a
-                        key=''
-                        href=''
-                        className='text-cyan-100 hover:text-white hover:bg-cyan-600 group flex items-center px-2 py-2 text-base font-medium rounded-md'
-                      >
-                        <ScaleIcon
-                          className='mr-4 h-6 w-6 flex-shrink-0 text-cyan-200'
-                          aria-hidden='true'
-                        />
-                        Balance
-                      </a>
-                    </div>
                     {/* Opción de pagina de Factura */}
                     <div className='space-y-1 px-2'>
                       <a
