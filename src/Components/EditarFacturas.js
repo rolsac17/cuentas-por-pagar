@@ -1,5 +1,4 @@
 import React from 'react';
-import {withRouter} from './params'
 import Menu from './Menu';
 import {baseUrl, apiFacturasUrl} from '../Servicios/api';
 import axios from 'axios';
