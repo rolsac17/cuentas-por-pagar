@@ -16,7 +16,11 @@ class Factura extends React.Component {
     },
     estado:false
   }
-
+  recargar = () =>
+  {
+    window.location.reload();
+    this.AgregarFactura();
+  }
   //  clickFactura(id){
   //    console.log(id);
 
@@ -110,12 +114,12 @@ class Factura extends React.Component {
                   />
 
                   <input
-                    style={{ color: 'black' }}
+                    style={{ color: 'black'}}
                     type='button'
                     value='Guardar'
-                    className='btn btn-dark mt-3 mb-3 rounded-3xl' 
+                    className='btn btn-primary hover: mt-3 mb-3 rounded-3xl w-1/3' 
                     id='button'
-                    onClick={this.AgregarFactura }
+                    onClick={this.recargar}
                   />
                 </form>
   
@@ -135,7 +139,7 @@ class Factura extends React.Component {
                     {this.state.facturas.map((value, index)=>{
                       return(
                         <tr key={index}>
-                          <td><Link to={"/editar/"+value.facturaId}>{value.facturaId}</Link></td>
+                          <td><Link to={"/editarFactura/"+value.facturaId}>{value.facturaId}</Link></td>
                           <td>{value.noFactura}</td>
                           <td>{value.proveedorId}</td>
                           <td>{value.totalFactura}</td>

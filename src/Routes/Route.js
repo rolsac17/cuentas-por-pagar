@@ -9,6 +9,7 @@ import Historial from '../Components/Historial';
 import Resumen from '../Components/Resumen';
 import Ajuste from '../Components/Ajustes';
 import EditarFactura from '../Components/EditarFacturas';
+import EditarProveedores from  '../Components/EditarProveedores';
 
 function Rutas() {
   return (
@@ -20,7 +21,8 @@ function Rutas() {
         <Route path='/factura' element={<Factura />} />
         <Route path='/historial' element={<Historial />} />
         <Route path='/ajustes' element={<Ajuste />} />
-        <Route path='/editar/:id' element={<EditarFactura />} />
+        <Route path='/editarFactura/:id' element={<EditarFactura />} />
+        <Route path='/editarProveedor/:id' element={<EditarProveedores />} />
         <Route path='/' element={<Login />} />
       </Routes>
     </Router>

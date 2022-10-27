@@ -3,6 +3,7 @@ import Menu from './Menu';
 import axios from 'axios';
 import {baseUrl, apiProveedorUrl} from '../Servicios/api';
 import { useRouteLoaderData } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class Proveedor extends React.Component {
   
@@ -108,7 +109,7 @@ render() {
                     style={{ color: 'black' }}
                     type='button'
                     value='Guardar'
-                    className='btn btn-dark mt-3 mb-3 rounded-3xl' 
+                    className='btn btn-primary hover: mt-3 mb-3 rounded-3xl w-1/3' 
                     id='button'
                     onClick={this.recargar}
                   />
@@ -129,8 +130,8 @@ render() {
                   <tbody >
                     {this.state.proveedor.map((value, index)=>{
                       return(
-                        <tr key={index} onClick={()=>this.clickProveedor(value.proveedorId)}>
-                          <td>{value.idProveedor}</td>
+                        <tr key={index}>
+                        <td><Link to={"/editarProveedor/"+value.idProveedor}>{value.idProveedor}</Link></td>
                           <td>{value.proveedorName}</td>
                           <td>{value.email}</td>
                           <td>{value.telefono}</td>
