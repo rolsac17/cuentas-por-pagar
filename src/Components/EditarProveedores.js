@@ -14,6 +14,7 @@ class EditarProveedores extends React.Component {
                 "email":"",
                 "telefono":""
         },
+        Facturas:[],
         error:false,
         errorMSG:""
      }
@@ -62,12 +63,16 @@ class EditarProveedores extends React.Component {
         .then(response => {
             this.setState({
                 form:{
-                    IdProveedor : response.data.IdProveedor,
-                    proveedorName : response.data.proveedorName,
-                    email:response.data.email,
-                    telefono:response.data.telefono
-                }
+                    IdProveedor : response.data[0].IdProveedor,
+                    proveedorName : response.data[0].proveedorName,
+                    email:response.data[0].email,
+                    telefono:response.data[0].telefono
+                },
+
+                Facturas: response.data[0].facturas
             })
+
+            console.log(response)
         })
     }
 
@@ -153,6 +158,31 @@ class EditarProveedores extends React.Component {
                         </form>
         
                         <hr />
+
+                        <table className='table table-bordered table-striped'>
+                            <thead>
+                                <tr>
+                                <th>Fatura Id</th>
+                                <th>noFactura</th>
+                                <th>Total Factura</th>
+                                </tr>
+                            </thead>
+
+                            
+            
+                            <tbody >
+                            {this.state.Facturas.map((value, index)=>{
+                                return(
+                                    <tr key={index}>
+                                    <td>{value.facturaId}</td>
+                                    <td>{value.noFactura}</td>
+                                    <td>{value.totalFactura}</td>
+                                    </tr>
+                                )
+                                })}
+                            </tbody>
+                </table>
+
                     </main>
         
                     <footer></footer>

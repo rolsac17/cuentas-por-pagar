@@ -56,6 +56,7 @@ class Proveedor extends React.Component {
         proveedor:response.data
       })
       
+      console.log(response)
     })
   }
   
@@ -131,7 +132,7 @@ render() {
                     {this.state.proveedor.map((value, index)=>{
                       return(
                         <tr key={index}>
-                        <td><Link to={"/editarProveedor/"+value.idProveedor}>{value.idProveedor}</Link></td>
+                        <td><Link to={"/editarProveedor/"+value.proveedorId}>{value.proveedorId}</Link></td>
                           <td>{value.proveedorName}</td>
                           <td>{value.email}</td>
                           <td>{value.telefono}</td>

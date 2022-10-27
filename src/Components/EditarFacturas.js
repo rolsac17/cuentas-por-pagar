@@ -13,8 +13,10 @@ class EditarFactura extends React.Component {
             "facturaId":"",
             "noFactura":"",
             "proveedorId":"",
-            "totalFactura":""
+            "totalFactura":"",
+            
         },
+        Pagos:[],
         error:false,
         errorMSG:""
      }
@@ -64,11 +66,13 @@ class EditarFactura extends React.Component {
         .then(response => {
             this.setState({
                 form:{
-                    facturaId : response.data.facturaId,
-                    noFactura : response.data.noFactura,
-                    proveedorId:response.data.proveedorId,
-                    totalFactura:response.data.totalFactura
-                }
+                    facturaId : response.data[0].facturaId,
+                    noFactura : response.data[0].noFactura,
+                    proveedorId:response.data[0].proveedorId,
+                    totalFactura:response.data[0].totalFactura,
+                    
+                },
+                Pagos:response.data[0].pagos
             })
         })
     }
@@ -76,6 +80,7 @@ class EditarFactura extends React.Component {
     
 
     render() { 
+
         return ( 
             <>
                 <Menu>
@@ -154,8 +159,33 @@ class EditarFactura extends React.Component {
                         </form>
         
                         <hr />
-                    </main>
+
+                        <table className='table table-bordered table-striped'>
+                            <thead>
+                                <tr>
+                                <th>Desc. Pago</th>
+                                <th>ID Pago</th>
+                                <th>Monto</th>
+                                </tr>
+                            </thead>
+
+                            
+            
+                            <tbody >
+                            {this.state.Pagos.map((value, index)=>{
+                                return(
+                                    <tr key={index}>
+                                    <td>{value.descPago}</td>
+                                    <td>{value.pagoId}</td>
+                                    <td>{value.totalPago}</td>
+                                    </tr>
+                                )
+                                })}
+                            </tbody>
+                </table>
         
+
+                    </main> 
                     <footer></footer>
                     </div>
                 </div>

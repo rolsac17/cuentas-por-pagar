@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Menu from './Menu';
-import {getId} from './EditarFacturas'
 import axios from 'axios';
 import {baseUrl, apiFacturasUrl} from '../Servicios/api';
 
@@ -62,6 +61,8 @@ class Factura extends React.Component {
       this.setState({
         facturas:response.data
       })
+
+      console.log(response);
     })
   }
 
@@ -141,7 +142,7 @@ class Factura extends React.Component {
                         <tr key={index}>
                           <td><Link to={"/editarFactura/"+value.facturaId}>{value.facturaId}</Link></td>
                           <td>{value.noFactura}</td>
-                          <td>{value.proveedorId}</td>
+                          <td>{value.proveedor.proveedorName}</td>
                           <td>{value.totalFactura}</td>
                         </tr>
                       )
