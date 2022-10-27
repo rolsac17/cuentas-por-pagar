@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Menu from './Menu';
+import {getId} from './EditarFacturas'
 import axios from 'axios';
 import {baseUrl, apiFacturasUrl} from '../Servicios/api';
 
@@ -14,6 +16,13 @@ class Factura extends React.Component {
     },
     estado:false
   }
+
+  //  clickFactura(id){
+  //    console.log(id);
+
+  //    // NoFactura = document.getElementById('noFactura');
+  //    // noFactura.value = this.state.obtenerFacturas.
+  //  }
   
   //=========AgregarFacturas===============================
   manejadorChange = async e=>{
@@ -34,13 +43,12 @@ class Factura extends React.Component {
     .then( response => {
       console.log(response)
     })
+
   }
 
   //==========Poblacion De Las Tablas==========================
 
-  clickFactura(id){
-    console.log(id);
-  }
+  
 
   componentDidMount(){
     let url = baseUrl + apiFacturasUrl;
@@ -107,7 +115,7 @@ class Factura extends React.Component {
                     value='Guardar'
                     className='btn btn-dark mt-3 mb-3 rounded-3xl' 
                     id='button'
-                    onClick={this.AgregarFactura}
+                    onClick={this.AgregarFactura }
                   />
                 </form>
   
@@ -126,8 +134,8 @@ class Factura extends React.Component {
                   <tbody >
                     {this.state.facturas.map((value, index)=>{
                       return(
-                        <tr key={index} onClick={()=>this.clickFactura(value.facturaId)}>
-                          <td>{value.facturaId}</td>
+                        <tr key={index}>
+                          <td><Link to={"/editar/"+value.facturaId}>{value.facturaId}</Link></td>
                           <td>{value.noFactura}</td>
                           <td>{value.proveedorId}</td>
                           <td>{value.totalFactura}</td>
