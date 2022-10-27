@@ -135,7 +135,7 @@ class Factura extends React.Component {
                     {this.state.facturas.map((value, index)=>{
                       return(
                         <tr key={index}>
-                          <td><Link to={"/editar/"+value.facturaId}>{value.facturaId}</Link></td>
+                          <td><Link to={"/editarFactura/"+value.facturaId}>{value.facturaId}</Link></td>
                           <td>{value.noFactura}</td>
                           <td>{value.proveedorId}</td>
                           <td>{value.totalFactura}</td>

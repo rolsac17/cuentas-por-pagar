@@ -20,7 +20,7 @@ function Rutas() {
         <Route path='/factura' element={<Factura />} />
         <Route path='/historial' element={<Historial />} />
         <Route path='/ajustes' element={<Ajuste />} />
-        <Route path='/editar/:id' element={<EditarFactura />} />
+        <Route path='/editarFactura/:id' element={<EditarFactura />} />
         <Route path='/' element={<Login />} />
       </Routes>
     </Router>

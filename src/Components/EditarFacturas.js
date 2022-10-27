@@ -54,8 +54,14 @@ class EditarFactura extends React.Component {
 
       //obtener los valores y almacenarlos
     componentDidMount=()=>{
-        let facturaId = window.location.pathname;
-        let url = baseUrl + apiFacturasUrl +facturaId
+
+        let actual = window.location+'';
+        let split = actual.split("/");
+        let id = split[split.length-1];
+        let url = baseUrl + apiFacturasUrl + "/editar/" + id;
+        
+        // let facturaId = window.location.pathname;
+        // let url = baseUrl + apiFacturasUrl +facturaId
 
         axios.get(url)
         .then(response => {
