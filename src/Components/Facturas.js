@@ -82,8 +82,8 @@ class Factura extends React.Component {
 
   
               <main className='px-1 pt-6'>
-                <form action=''>
-                  <label htmlFor='id'>No. Factura</label>
+                <form action='' >
+                  <label htmlFor='id' className='font-bold'>No. Factura</label>
                   <input
                     type='number'
                     id='noFactura'
@@ -93,7 +93,7 @@ class Factura extends React.Component {
                     onChange={this.manejadorChange}
                   />
   
-                  <label htmlFor='nombre'>Id Proveedor</label>
+                  <label htmlFor='nombre'className='font-bold' >Id Proveedor</label>
                   <input
                     type='number'
                     id='proveedorId'
@@ -103,7 +103,7 @@ class Factura extends React.Component {
                     onChange={this.manejadorChange}
                   />
   
-                  <label htmlFor='total'>Total Factura</label>
+                  <label htmlFor='total' className='font-bold'>Total Factura</label>
                   <input
                     type='number'
                     id='total'
@@ -112,15 +112,16 @@ class Factura extends React.Component {
                     autoComplete='off'
                     onChange={this.manejadorChange}
                   />
-
+                  <div className='w-full flex flex-col center container items-center'>
                   <input
                     style={{ color: 'black'}}
                     type='button'
                     value='Guardar'
-                    className='btn btn-primary hover: mt-3 mb-3 rounded-3xl w-1/3' 
+                    className='hover: mt-3 mb-3 rounded-3xl w-1/3 bg-indigo-900 text-white p-2 hover:bg-indigo-400'  
                     id='button'
                     onClick={this.recargar}
                   />
+                  </div>
                 </form>
   
                 <hr />

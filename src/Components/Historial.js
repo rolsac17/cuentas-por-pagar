@@ -62,7 +62,7 @@ const Historial = () => {
     return ( 
       <>
       <Menu>
-      <div className='w-full'>
+      <div className='w-full py-16'>
             <main className='pb-8'>
             <div className='mt-8 lg:mt-2'>
               {/* Inicio de Menu de cards*/}

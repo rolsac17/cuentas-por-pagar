@@ -144,7 +144,7 @@ class EditarProveedores extends React.Component {
                             style={{ color: 'black' }}
                             type='button'
                             value='Regresar'
-                            className='btn btn-danger mt-3 mb-3 rounded-3xl px-5'
+                            className='btn btn-primary mt-3 mb-3 rounded-3xl px-5'
                         >
                             Regresar
                         </Link>

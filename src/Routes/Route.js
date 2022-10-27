@@ -10,17 +10,19 @@ import Resumen from '../Components/Resumen';
 import Ajuste from '../Components/Ajustes';
 import EditarFactura from '../Components/EditarFacturas';
 import EditarProveedores from  '../Components/EditarProveedores';
+import Pago from '../Components/Pagos';
 
 function Rutas() {
   return (
     <Router>
       <Routes>
-        <Route path='/menu' element={<Resumen />} />
+        <Route path='/resumen' element={<Resumen />} />
         <Route path='/proveedores' element={<Proveedores />} />
         <Route path='/reportes' element={<Reportes />} />
         <Route path='/factura' element={<Factura />} />
         <Route path='/historial' element={<Historial />} />
         <Route path='/ajustes' element={<Ajuste />} />
+        <Route path='/pago' element={<Pago />} />
         <Route path='/editarFactura/:id' element={<EditarFactura />} />
         <Route path='/editarProveedor/:id' element={<EditarProveedores />} />
         <Route path='/' element={<Login />} />

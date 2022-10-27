@@ -13,7 +13,9 @@ import {
   UserGroupIcon,
   XMarkIcon,
   ArrowsRightLeftIcon,
+  DocumentCheckIcon,
 } from '@heroicons/react/24/outline';
+import { SwatchIcon } from '@heroicons/react/20/solid';
 
 // const navigation = [
 //   { name: 'Inicio', href: '#', icon: HomeIcon, current: true },
@@ -197,11 +199,14 @@ export default function Example({ children }) {
           {/* Componente de la barra lateral, intercambie este elemento con otra barra lateral si lo desea */}
           <div className='flex flex-grow flex-col overflow-y-auto bg-[#a21caf] pt-5 pb-4 items-center'>
             <div className='flex items-center h-40 w-40'>
+              <Link
+              to={'/resumen'}>
               <img
-                className='h-40 w-40'
-                src='https://images.vexels.com/media/users/3/224169/isolated/lists/dbfe1f493ad01117fa4ec5ba10150e4d-logotipo-de-programaci-n-inform-tica.png'
-                alt='Easywire logo'
+                className='h-40 w-40 rounded-full'
+                src='https://st4.depositphotos.com/1001599/30954/v/600/depositphotos_309544704-stock-illustration-enterprise-accounting-concept-vector-illustration.jpg'
+                alt='Logo empresa'
               />
+              </Link>
             </div>
             <nav
               className='mt-5 flex flex-col overflow-y-auto justify-between h-full'
@@ -268,6 +273,20 @@ export default function Example({ children }) {
                   Reportes
                 </Link>
               </div>
+              <div className='space-y-1 px-2'>
+                <Link
+                  to={'/pago'}
+                  key=''
+                  href=''
+                  className='text-cyan-100 hover:text-white hover:bg-cyan-600 group flex items-center px-2 py-2 text-xl font-medium rounded-md'
+                >
+                  <SwatchIcon
+                    className='mr-4 h-6 w-6 flex-shrink-0 text-cyan-200'
+                    aria-hidden='true'
+                  />
+                  Pagos   
+                </Link>
+              </div>
               <div className='mt-6 pt-6'>
               {/* <div className='space-y-1 px-2'>
                 <Link
@@ -303,7 +322,7 @@ export default function Example({ children }) {
         </div>
       </div>
       <main className='w-full'>
-        <div className='py-16 w-full'>
+        <div className='w-full'>
           <div className='mx-full max-w-screen-xl px-4 sm:px-6 md:px-8 w-full'>
            
           </div>

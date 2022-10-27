@@ -65,16 +65,16 @@ render() {
         <>
         <Menu>
         <div className='w-full flex flex-col center container items-center'>
-            <div className="container m-5 content-center" style={{width:"95%"}}>
+            <div className="container m-5" style={{width:"95%"}}>
 
                 <header className="bg-[#a21caf] rounded-3xl">
-                    <h1 className='text-center text-white hover:text-white px-2 py-2 text-base font-medium rounded-md' >
+                    <h1 className='text-center text-white hover:text-white px-2 py-2 text-base font-bold rounded-md' >
                         Formulario de Proveedores</h1>
                 </header>
 
                 <main className='px-1 pt-6'>
                 <form action=''>
-                  <label htmlFor='id'>Nombre Proveedor</label>
+                  <label htmlFor='id' className='font-bold'>Nombre Proveedor</label>
                   <input
                     type='text'
                     id='proveedorName'
@@ -84,7 +84,7 @@ render() {
                     onChange={this.manejadorChange}
                   />
   
-                  <label htmlFor='email'>Email</label>
+                  <label htmlFor='email' className='font-bold'>Email</label>
                   <input
                     type='text'
                     id='email'
@@ -94,7 +94,7 @@ render() {
                     onChange={this.manejadorChange}
                   />
   
-                  <label htmlFor='telefono'>Teléfono</label>
+                  <label htmlFor='telefono' className='font-bold'>Teléfono</label>
                   <input
                     type='number'
                     id='telefonoN'
@@ -103,16 +103,16 @@ render() {
                     autoComplete='off'
                     onChange={this.manejadorChange}
                   />
-                  
-
+                  <div className='w-full flex flex-col center container items-center'>
                   <input
-                    style={{ color: 'black' }}
+                    style={{ color: 'black'}}
                     type='button'
                     value='Guardar'
-                    className='btn btn-primary hover: mt-3 mb-3 rounded-3xl w-1/3' 
+                    className='hover: mt-3 mb-3 rounded-3xl w-1/3 bg-indigo-900 text-white p-2 hover:bg-indigo-400'  
                     id='button'
                     onClick={this.recargar}
                   />
+                  </div>
                 </form>
   
                 <hr />
