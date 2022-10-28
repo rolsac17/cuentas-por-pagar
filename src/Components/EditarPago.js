@@ -1,6 +1,6 @@
 import React from 'react';
 import Menu from './Menu';
-import {baseUrl, apiFacturasUrl} from '../Servicios/api';
+import {baseUrl, apiPagoUrl} from '../Servicios/api';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
@@ -10,12 +10,11 @@ class EditarFactura extends React.Component {
     
     state = { 
         form:{
-            "facturaId":"",
-            "noFactura":"",
-            "proveedorId":"",
-            "totalFactura":""
+            "pagoId":"",
+            "descPago":"",
+            "totalPago":"",
+            "facturaId":""
         },
-        Pagos:[],
         error:false,
         errorMSG:""
      }
@@ -35,7 +34,7 @@ class EditarFactura extends React.Component {
       //metodo para solicitud httpPut
 
       put = () =>{
-        let url = baseUrl + apiFacturasUrl + "/" + this.state.form.facturaId;
+        let url = baseUrl + apiPagoUrl + "/" + this.state.form.pagoId;
         axios.put(url, this.state.form)
         .then(response =>{
             console.log(response);
@@ -45,7 +44,7 @@ class EditarFactura extends React.Component {
       //Metodo para httpDelete
 
       delete=()=>{
-        let url = baseUrl + apiFacturasUrl + "/" + this.state.form.facturaId;
+        let url = baseUrl + apiPagoUrl + "/" + this.state.form.pagoId;
         axios.delete(url)
         .then(response =>{
             console.log(response);
@@ -59,18 +58,17 @@ class EditarFactura extends React.Component {
         let split = actual.split("/");
         let id = split[split.length-1];
         //let facturaId = window.location.pathname;
-        let url = baseUrl + apiFacturasUrl + "/editar/" + id;
+        let url = baseUrl + apiPagoUrl + "/" + id;
 
         axios.get(url)
         .then(response => {
             this.setState({
                 form:{
-                    facturaId : response.data[0].facturaId,
-                    noFactura : response.data[0].noFactura,
-                    proveedorId:response.data[0].proveedorId,
-                    totalFactura:response.data[0].totalFactura
-                },
-                Pagos:response.data[0].pagos
+                    pagoId : response.data[0].pagoId,
+                    descPago : response.data[0].descPago,
+                    totalPago:response.data[0].totalPago,
+                    facturaId:response.data[0].facturaId
+                }
             })
         })
     }
@@ -94,40 +92,40 @@ class EditarFactura extends React.Component {
         
                     <main className='px-1 pt-6'>
                         <form action=''>
-                        <label htmlFor='id'>No. Factura</label>
+                        <label htmlFor='id'>Pago Id</label>
                         <input
                             type='number'
-                            id='noFactura'
-                            name='noFactura'
+                            id='pagoId'
+                            name='pagoId'
                             className='form-control rounded-3xl'
                             autoComplete='off'
-                            value={this.state.form.noFactura}
+                            value={this.state.form.pagoId}
                             onChange={this.manejadorChange}
                         />
         
-                        <label htmlFor='nombre'>Id Proveedor</label>
+                        <label htmlFor='nombre'>Desc. Pago</label>
                         <input
-                            type='number'
-                            id='proveedorId'
-                            name='proveedorId'
+                            type='text'
+                            id='descPago'
+                            name='descPago'
                             className='form-control rounded-3xl'
                             autoComplete='off'
-                            value={this.state.form.proveedorId}
+                            value={this.state.form.descPago}
                             onChange={this.manejadorChange}
                         />
         
-                        <label htmlFor='total'>Total Factura</label>
+                        <label htmlFor='total'>Total Pago</label>
                         <input
                             type='number'
-                            id='total'
-                            name='totalFactura'
+                            id='totalPago'
+                            name='totalPago'
                             className='form-control rounded-3xl'
                              autoComplete='off'
-                            value={this.state.form.totalFactura}
+                            value={this.state.form.totalPago}
                             onChange={this.manejadorChange}
                         />
                         <div className='flex flex-row justify-around mt-4'>
-                        <Link to={"/factura"}
+                        <Link to={"/pago"}
                             style={{ color: 'black' }}
                             type='button'
                             value='Editar'
@@ -135,7 +133,7 @@ class EditarFactura extends React.Component {
                             onClick={()=>this.put()}
                         > Editar </Link>
 
-                        <Link to={"/factura"}
+                        <Link to={"/pago"}
                             style={{ color: 'black' }}
                             type='button'
                             value='Eliminar'
@@ -144,7 +142,7 @@ class EditarFactura extends React.Component {
                         >
                             Eliminar
                         </Link>
-                        <Link to={"/factura"}
+                        <Link to={"/pago"}
                             style={{ color: 'black' }}
                             type='button'
                             value='Regresar'
@@ -154,32 +152,6 @@ class EditarFactura extends React.Component {
                         </Link>
                         </div>
                         </form>
-
-                        <hr />
-
-                        <table className='table table-bordered table-striped'>
-                            <thead>
-                                <tr>
-                                <th>Desc. Pago</th>
-                                <th>ID Pago</th>
-                                <th>Monto</th>
-                                </tr>
-                            </thead>
-
-                            
-            
-                            <tbody >
-                            {this.state.Pagos.map((value, index)=>{
-                                return(
-                                    <tr key={index}>
-                                    <td>{value.descPago}</td>
-                                    <td>{value.pagoId}</td>
-                                    <td>{value.totalPago}</td>
-                                    </tr>
-                                )
-                                })}
-                            </tbody>
-                </table>
         
                         <hr />
                     </main>

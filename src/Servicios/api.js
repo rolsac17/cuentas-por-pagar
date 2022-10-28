@@ -4,3 +4,4 @@ export const apiUsuarioUrl = '/api/Usuario'
 //Facturas
 export const apiFacturasUrl = '/api/Facturas'
 export const apiProveedorUrl = '/api/Proveedors'
+export const apiPagoUrl = '/api/MovimientosDeCuentas'

@@ -1,41 +1,41 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Menu from './Menu';
 import axios from 'axios';
-import {baseUrl, apiProveedorUrl} from '../Servicios/api';
-import { useRouteLoaderData } from 'react-router-dom';
+import {baseUrl, apiPagoUrl} from '../Servicios/api';
 import { Link } from 'react-router-dom';
 
 class Pago extends React.Component {
   
     state = {
-      proveedor:[],
-      AddProveedor:{
-        "monto":"",
-        "factura":""
+      pago:[],
+      AddPago:{
+        "descPago":"",
+        "totalPago":"",
+        "facturaId":""
       },
       estado:false
     }
     recargar = () =>
     {
       window.location.reload();
-      this.AgregarProveedor();
+      this.AgregarPago();
     }
 
   //=========AgregarProveedor===============================
     manejadorChange = async e=>{
         await this.setState({
-            AddProveedor:{
-            ...this.state.AddProveedor,
+            AddPago:{
+            ...this.state.AddPago,
             [e.target.name]:e.target.value
           }
         })
     
       }
 
-      AgregarProveedor=()=>{
-        let url = baseUrl + apiProveedorUrl;
+      AgregarPago=()=>{
+        let url = baseUrl + apiPagoUrl;
     
-        axios.post(url, this.state.AddProveedor)
+        axios.post(url, this.state.AddPago)
         .then( response => {
           console.log(response)
         })
@@ -47,12 +47,12 @@ class Pago extends React.Component {
   }
 
   componentDidMount(){
-    let url = baseUrl + apiProveedorUrl;
+    let url = baseUrl + apiPagoUrl;
 
     axios.get(url)
     .then(response => {
       this.setState({
-        proveedor:response.data
+        pago:response.data
       })
       
     })
@@ -71,26 +71,38 @@ render() {
                         Formulario de Pago</h1>
                 </header>
 
-                <main className='px-1 pt-6 text-center flex flex-col center container items-center'>
+                <main className='px-4 pt-6 text-center flex flex-col center container items-center'>
                 <div  className='rounded-3xl bg-slate-100 w-4/12 mt-8'>
                 <form>
                     <div className='flex flex-col center container items-center mb-12 mt-16'>
-                  <label htmlFor='id' className='font-bold'>Numero de factura</label>
+                  <label htmlFor='id' className='font-bold'>Desc. Pago</label>
                   <input
-                    type='number'
-                    id='proveedorName'
-                    name='proveedorName'
+                    type='text'
+                    id='descPago'
+                    name='descPago'
                     className='form-control rounded-3xl w-5/6'
                     autoComplete='off'
                     onChange={this.manejadorChange}
                   />
                 </div>
                 <div className='flex flex-col center container items-center mb-16'>
-                  <label htmlFor='email' className='font-bold'>Pago</label>
+                  <label htmlFor='email' className='font-bold'>Monto A Pagar</label>
                   <input
                     type='number'
-                    id='pago'
-                    name='pago'
+                    id='totalPago'
+                    name='totalPago'
+                    className='form-control rounded-3xl w-3/4'
+                    autoComplete='off'
+                    onChange={this.manejadorChange}
+                  />
+                </div>
+
+                <div className='flex flex-col center container items-center mb-16'>
+                  <label htmlFor='email' className='font-bold'>Id Factura</label>
+                  <input
+                    type='number'
+                    id='facturaId'
+                    name='facturaId'
                     className='form-control rounded-3xl w-3/4'
                     autoComplete='off'
                     onChange={this.manejadorChange}
@@ -100,14 +112,42 @@ render() {
                   <input
                     style={{ color: 'black' }}
                     type='button'
-                    value='Verificar'
+                    value='Guardar'
                     className='hover: mt-3 mb-3 rounded-3xl w-1/3 bg-indigo-900 text-white p-2 hover:bg-indigo-400' 
                     id='button'
                     onClick={this.recargar}
                   />
                   </div>
+
+                  
                 </form>
                 </div>
+
+                <hr />
+  
+                <table className='mt-5 table table-bordered table-striped'>
+                  <thead>
+                    <tr>
+                      <th>Id De Pago</th>
+                      <th>Desc. Pago</th>
+                      <th>Total De Pago</th>
+                      <th>Id Factura A Pagar</th>
+                    </tr>
+                  </thead>
+  
+                  <tbody >
+                    {this.state.pago.map((value, index)=>{
+                      return(
+                        <tr key={index}>
+                        <td><Link to={"/editarPago/"+value.pagoId}>{value.pagoId}</Link></td>
+                          <td>{value.descPago}</td>
+                          <td>{value.totalPago}</td>
+                          <td>{value.facturaId}</td>
+                        </tr>
+                      )
+                    })}
+                  </tbody>
+                </table>
               </main>
   
               <footer></footer>

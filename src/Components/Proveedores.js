@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Menu from './Menu';
 import axios from 'axios';
 import {baseUrl, apiProveedorUrl} from '../Servicios/api';
-import { useRouteLoaderData } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 class Proveedor extends React.Component {
@@ -131,7 +130,7 @@ render() {
                     {this.state.proveedor.map((value, index)=>{
                       return(
                         <tr key={index}>
-                        <td><Link to={"/editarProveedor/"+value.idProveedor}>{value.idProveedor}</Link></td>
+                        <td><Link to={"/editarProveedor/"+value.proveedorId}>{value.proveedorId}</Link></td>
                           <td>{value.proveedorName}</td>
                           <td>{value.email}</td>
                           <td>{value.telefono}</td>

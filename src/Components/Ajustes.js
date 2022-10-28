@@ -1,18 +1,10 @@
 import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import {
-  BanknotesIcon,
-  Bars3Icon,
-  BellIcon,
   BookmarkSquareIcon,
-  CogIcon,
   FireIcon,
   HomeIcon,
   InboxIcon,
-  KeyIcon,
-  MagnifyingGlassCircleIcon,
-  PhotoIcon,
-  SquaresPlusIcon,
   UserIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline'
@@ -27,61 +19,6 @@ const navigation = [
   { name: 'Messages', href: '#', icon: InboxIcon },
   { name: 'Profile', href: '#', icon: UserIcon },
 ]
-const subNavigation = [
-  {
-    name: 'Account',
-    description: 'Ullamcorper id at suspendisse nec id volutpat vestibulum enim. Interdum blandit.',
-    href: '#',
-    icon: CogIcon,
-    current: true,
-  },
-  {
-    name: 'Notifications',
-    description: 'Enim, nullam mi vel et libero urna lectus enim. Et sed in maecenas tellus.',
-    href: '#',
-    icon: BellIcon,
-    current: false,
-  },
-  {
-    name: 'Security',
-    description: 'Semper accumsan massa vel volutpat massa. Non turpis ut nulla aliquet turpis.',
-    href: '#',
-    icon: KeyIcon,
-    current: false,
-  },
-  {
-    name: 'Appearance',
-    description: 'Magna nulla id sed ornare ipsum eget. Massa eget porttitor suscipit consequat.',
-    href: '#',
-    icon: PhotoIcon,
-    current: false,
-  },
-  {
-    name: 'Billing',
-    description: 'Orci aliquam arcu egestas turpis cursus. Lectus faucibus netus dui auctor mauris.',
-    href: '#',
-    icon: BanknotesIcon,
-    current: false,
-  },
-  {
-    name: 'Integrations',
-    description: 'Nisi, elit volutpat odio urna quis arcu faucibus dui. Mauris adipiscing pellentesque.',
-    href: '#',
-    icon: SquaresPlusIcon,
-    current: false,
-  },
-  {
-    name: 'Additional Resources',
-    description: 'Quis viverra netus donec ut auctor fringilla facilisis. Nunc sit donec cursus sit quis et.',
-    href: '#',
-    icon: MagnifyingGlassCircleIcon,
-    current: false,
-  },
-]
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
 
 export default function Ajuste() {
 

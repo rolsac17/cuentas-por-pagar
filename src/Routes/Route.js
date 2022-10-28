@@ -1,7 +1,6 @@
 import Login from '../Components/Logins';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Routes } from 'react-router-dom';
-import Menu from '../Components/Menu';
 import Proveedores from '../Components/Proveedores';
 import Reportes from '../Components/Reportes';
 import Factura from '../Components/Facturas';
@@ -10,6 +9,7 @@ import Resumen from '../Components/Resumen';
 import Ajuste from '../Components/Ajustes';
 import EditarFactura from '../Components/EditarFacturas';
 import EditarProveedores from  '../Components/EditarProveedores';
+import EditarPago from '../Components/EditarPago'
 import Pago from '../Components/Pagos';
 
 function Rutas() {
@@ -25,6 +25,7 @@ function Rutas() {
         <Route path='/pago' element={<Pago />} />
         <Route path='/editarFactura/:id' element={<EditarFactura />} />
         <Route path='/editarProveedor/:id' element={<EditarProveedores />} />
+        <Route path='/editarPago/:id' element={<EditarPago />} />
         <Route path='/' element={<Login />} />
       </Routes>
     </Router>
