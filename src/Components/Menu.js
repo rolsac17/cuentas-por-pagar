@@ -214,7 +214,7 @@ export default function Example({ children }) {
               style={{paddingTop:"15%", paddingBottom:"15%"}}
             >
               {/* Opción de pagina de Historial */}
-              <div className='space-y-1 px-2'>
+              {/* <div className='space-y-1 px-2'>
                 <Link
                   to={'/historial'}
                   key=''
@@ -227,7 +227,7 @@ export default function Example({ children }) {
                   />
                   Estados de Cuenta
                 </Link>
-              </div>
+              </div> */}
               {/* Opción de pagina de Factura */}
               <div className='space-y-1 px-2'>
                 <Link
