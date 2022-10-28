@@ -1,18 +1,18 @@
 import React from 'react';
 import Menu from './Menu';
-import {baseUrl, apiProveedorUrl} from '../Servicios/api';
+import {baseUrl, apiProveedorUrl, apiPagoUrl} from '../Servicios/api';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 
 
-class EditarProveedores extends React.Component {
+class EditarPago extends React.Component {
     
     state = { 
         form:{
-                "proveedorName":"",
-                "email":"",
-                "telefono":""
+            "descPago":"",
+            "totalPago":"",
+            "facturaId":""
         },
         Facturas:[],
         error:false,
@@ -37,7 +37,7 @@ class EditarProveedores extends React.Component {
         let actual = window.location+'';
         let split = actual.split("/");
         let id = split[split.length-1];
-        let url = baseUrl + apiProveedorUrl + "/" + id;
+        let url = baseUrl + apiPagoUrl + "/editar/" + id;
         axios.put(url, this.state.form)
         .then(response =>{
             console.log(response);
@@ -50,7 +50,7 @@ class EditarProveedores extends React.Component {
         let actual = window.location+'';
         let split = actual.split("/");
         let id = split[split.length-1];
-        let url = baseUrl + apiProveedorUrl + "/" + id;
+        let url = baseUrl + apiPagoUrl + "/editar/" + id;
         axios.delete(url)
         .then(response =>{
             console.log(response);
@@ -62,12 +62,13 @@ class EditarProveedores extends React.Component {
         let actual = window.location+'';
         let split = actual.split("/");
         let id = split[split.length-1];
-        let url = baseUrl + apiProveedorUrl + "/" + id;
+        let url = baseUrl + apiPagoUrl + "/editar/" + id;
 
         axios.get(url)
         .then(response => {
             this.setState({
                 form:{
+                    IdProveedor : response.data[0].IdProveedor,
                     proveedorName : response.data[0].proveedorName,
                     email:response.data[0].email,
                     telefono:response.data[0].telefono
@@ -198,4 +199,4 @@ class EditarProveedores extends React.Component {
     }
 }
  
-export default EditarProveedores;
+export default EditarPago;

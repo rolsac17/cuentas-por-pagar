@@ -5,7 +5,7 @@ import Rutas from './Routes/Route';
 
 function App() {
   return (
-      <div className='flex'>
+      <div className='flex' style={{height: '100%'}}>
         <Rutas />
       </div>
     

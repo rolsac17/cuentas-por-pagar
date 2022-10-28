@@ -10,7 +10,6 @@ class EditarFactura extends React.Component {
     
     state = { 
         form:{
-            "facturaId":"",
             "noFactura":"",
             "proveedorId":"",
             "totalFactura":"",
@@ -36,7 +35,10 @@ class EditarFactura extends React.Component {
       //metodo para solicitud httpPut
 
       put = () =>{
-        let url = baseUrl + apiFacturasUrl + "/" + this.state.form.facturaId;
+        let actual = window.location+'';
+        let split = actual.split("/");
+        let id = split[split.length-1];
+        let url = baseUrl + apiFacturasUrl + "/" + id;
         axios.put(url, this.state.form)
         .then(response =>{
             console.log(response);
@@ -46,7 +48,10 @@ class EditarFactura extends React.Component {
       //Metodo para httpDelete
 
       delete=()=>{
-        let url = baseUrl + apiFacturasUrl + "/" + this.state.form.facturaId;
+        let actual = window.location+'';
+        let split = actual.split("/");
+        let id = split[split.length-1];
+        let url = baseUrl + apiFacturasUrl + "/" + id;
         axios.delete(url)
         .then(response =>{
             console.log(response);
@@ -59,21 +64,20 @@ class EditarFactura extends React.Component {
         let actual = window.location+'';
         let split = actual.split("/");
         let id = split[split.length-1];
-        //let facturaId = window.location.pathname;
         let url = baseUrl + apiFacturasUrl + "/editar/" + id;
 
         axios.get(url)
         .then(response => {
             this.setState({
                 form:{
-                    facturaId : response.data[0].facturaId,
-                    noFactura : response.data[0].noFactura,
+                    noFactura: response.data[0].noFactura,
                     proveedorId:response.data[0].proveedorId,
                     totalFactura:response.data[0].totalFactura,
                     
                 },
                 Pagos:response.data[0].pagos
             })
+            console.log(this.state.form);
         })
     }
 
@@ -130,7 +134,7 @@ class EditarFactura extends React.Component {
                             onChange={this.manejadorChange}
                         />
                         <div className='flex flex-row justify-around mt-4'>
-                        <Link to={"/factura"}
+                        <Link to={"#"}
                             style={{ color: 'black' }}
                             type='button'
                             value='Editar'
